@@ -1,0 +1,29 @@
+import type { AppConfig } from '@nuxt/schema';
+import type { ComponentConfig } from '@nuxt/ui';
+import theme from '#build/ui-pro/dashboard-panel';
+import type { UseResizableProps } from '../composables/useResizable';
+type DashboardPanel = ComponentConfig<typeof theme, AppConfig, 'dashboardPanel', 'uiPro'>;
+export interface DashboardPanelProps extends Pick<UseResizableProps, 'id' | 'minSize' | 'maxSize' | 'defaultSize' | 'resizable'> {
+    class?: any;
+    ui?: DashboardPanel['slots'];
+}
+export interface DashboardPanelSlots {
+    'default'(props?: {}): any;
+    'header'(props?: {}): any;
+    'body'(props?: {}): any;
+    'footer'(props?: {}): any;
+    'resize-handle'(props: {
+        onMouseDown: (e: MouseEvent) => void;
+        onTouchStart: (e: TouchEvent) => void;
+    }): any;
+}
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardPanelProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardPanelProps> & Readonly<{}>, {
+    minSize: number;
+    resizable: boolean;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, DashboardPanelSlots>;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};

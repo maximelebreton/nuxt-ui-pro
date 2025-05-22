@@ -1,4 +1,8 @@
-[![nuxt-ui-pro.png](https://volta.s3.fr-par.scw.cloud/306965274_1682f2a7_dfc5_4c85_9807_6203cd568852_154cf5592c.png)](https://ui.nuxt.com/pro)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/user-attachments/assets/c8492b2a-2c56-453c-bcfe-8dacca7687c4">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/user-attachments/assets/e7c8d81b-d481-4eb2-b627-64417c289ea8">
+  <img alt="Nuxt UI Pro" src="https://github.com/user-attachments/assets/e7c8d81b-d481-4eb2-b627-64417c289ea8">
+</picture>
 
 # Nuxt UI Pro
 
@@ -8,43 +12,56 @@
 
 Nuxt UI Pro is a collection of Vue components, composables and utils **built on top of Nuxt UI**, oriented on **structure and layout** and designed to be used as **building blocks for your app**.
 
-- [Documentation](https://ui.nuxt.com/pro/getting-started)
+- [Documentation](https://ui.nuxt.com/getting-started/installation/pro/nuxt)
 - [Pricing](https://ui.nuxt.com/pro/pricing)
+
+> [!NOTE]
+> You are on the `v3` development branch, check out the [v1 branch](https://github.com/nuxt/ui-pro/tree/v1) for Nuxt UI Pro v1.
 
 ## Templates
 
-You can get started with our [minimal starter](https://github.com/nuxt-ui-pro/starter), one of our [official templates](https://ui.nuxt.com/pro/templates) or follow the [Installation](https://ui.nuxt.com/pro/getting-started/installation) guide to install Nuxt UI Pro in your existing project.
+You can get started with our [minimal starter](https://github.com/nuxt-ui-pro/starter), one of our [official templates](https://ui.nuxt.com/pro/templates) or follow the [Installation](https://ui.nuxt.com/getting-started/installation/pro/nuxt) guide to install Nuxt UI Pro in your existing project.
 
 - [Landing](https://github.com/nuxt-ui-pro/landing)
 - [Docs](https://github.com/nuxt-ui-pro/docs)
 - [SaaS](https://github.com/nuxt-ui-pro/saas)
 - [Dashboard](https://github.com/nuxt-ui-pro/dashboard)
+- [Chat](https://github.com/nuxt-ui-pro/chat)
 
 ## Installation
 
-```bash
-# npm
-npm install @nuxt/ui-pro
-# yarn
-yarn add @nuxt/ui-pro
-# pnpm
+```bash [pnpm]
 pnpm add @nuxt/ui-pro
-# bun
+```
+
+```bash [yarn]
+yarn add @nuxt/ui-pro
+```
+
+```bash [npm]
+npm install @nuxt/ui-pro
+```
+
+```bash [bun]
 bun add @nuxt/ui-pro
 ```
 
-Note that `@nuxt/ui-pro` will also install [`@nuxt/ui`](https://ui.nuxt.com) as dependency to your project.
+1. Add the Nuxt UI module in your `nuxt.config.ts`:
 
-Next, add it to your `nuxt.config.ts` in the `extends` property:
-
-```ts
+```ts [nuxt.config.ts]
 export default defineNuxtConfig({
-  extends: ['@nuxt/ui-pro'],
-  modules: ['@nuxt/ui']
+  modules: ['@nuxt/ui-pro']
 })
 ```
 
-Start your development server, you should now be able to use all the components, composables and utils from Nuxt UI Pro 🚀
+2. Import Tailwind CSS and Nuxt UI in your CSS:
+
+```css [assets/css/main.css]
+@import "tailwindcss";
+@import "@nuxt/ui-pro";
+```
+
+Learn more in the [installation guide](https://ui.nuxt.com/getting-started/installation/pro/nuxt).
 
 ## License Key
 
@@ -86,7 +103,7 @@ When using the [Nuxt Devtools](https://devtools.nuxt.com), you can see the list 
 [npm-version-href]: https://npmjs.com/package/@nuxt/ui-pro
 
 [npm-downloads-src]: https://img.shields.io/npm/dm/@nuxt/ui-pro.svg?style=flat&colorA=020420&colorB=00DC82
-[npm-downloads-href]: https://npmjs.com/package/@nuxt/ui-pro
+[npm-downloads-href]: https://npm.chart.dev/@nuxt/ui-pro
 
 [nuxt-src]: https://img.shields.io/badge/Nuxt-020420?logo=nuxt.js
 [nuxt-href]: https://nuxt.com

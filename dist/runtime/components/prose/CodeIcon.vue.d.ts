@@ -1,0 +1,6 @@
+export interface ProseCodeIconProps {
+    icon?: string;
+    filename?: string;
+}
+declare const _default: import("vue").DefineComponent<ProseCodeIconProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCodeIconProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+export default _default;

@@ -1,0 +1,61 @@
+import type { AppConfig } from '@nuxt/schema';
+import type { TextareaProps, TextareaSlots, ComponentConfig } from '@nuxt/ui';
+import theme from '#build/ui-pro/chat-prompt';
+type ChatPrompt = ComponentConfig<typeof theme, AppConfig, 'chatPrompt', 'uiPro'>;
+export interface ChatPromptProps extends /** @vue-ignore */ Pick<TextareaProps, 'autofocusDelay' | 'autoresizeDelay' | 'maxrows' | 'icon' | 'avatar' | 'loading' | 'loadingIcon'> {
+    /**
+     * The element or component this component should render as.
+     * @defaultValue 'form'
+     */
+    as?: any;
+    /**
+     * The placeholder text for the textarea.
+     * @defaultValue t('chatPrompt.placeholder')
+     */
+    placeholder?: string;
+    autofocus?: TextareaProps['autofocus'];
+    autoresize?: TextareaProps['autoresize'];
+    rows?: TextareaProps['rows'];
+    /**
+     * @defaultValue 'outline'
+     */
+    variant?: ChatPrompt['variants']['variant'];
+    error?: Error;
+    class?: any;
+    ui?: ChatPrompt['slots'] & TextareaProps['ui'];
+}
+export interface ChatPromptEmits {
+    (e: 'submit', event: Event): void;
+    (e: 'close', event: Event): void;
+}
+export interface ChatPromptSlots extends TextareaSlots {
+    header(props?: {}): any;
+    footer(props?: {}): any;
+}
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatPromptProps & {
+    modelValue?: string;
+}, {
+    textareaRef: any;
+}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    "update:modelValue": (value: string) => any;
+} & {
+    close: (event: Event) => any;
+    submit: (event: Event) => any;
+}, string, import("vue").PublicProps, Readonly<ChatPromptProps & {
+    modelValue?: string;
+}> & Readonly<{
+    onClose?: ((event: Event) => any) | undefined;
+    onSubmit?: ((event: Event) => any) | undefined;
+    "onUpdate:modelValue"?: ((value: string) => any) | undefined;
+}>, {
+    as: any;
+    autofocus: boolean;
+    autoresize: boolean;
+    rows: number;
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ChatPromptSlots>;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};

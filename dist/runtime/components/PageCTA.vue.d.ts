@@ -1,0 +1,50 @@
+import type { AppConfig } from '@nuxt/schema';
+import type { ButtonProps, ComponentConfig } from '@nuxt/ui';
+import theme from '#build/ui-pro/page-cta';
+type PageCTA = ComponentConfig<typeof theme, AppConfig, 'pageCTA', 'uiPro'>;
+export interface PageCTAProps {
+    /**
+     * The element or component this component should render as.
+     * @defaultValue 'div'
+     */
+    as?: any;
+    class?: any;
+    title?: string;
+    description?: string;
+    /**
+     * The orientation of the page cta.
+     * @defaultValue 'vertical'
+     */
+    orientation?: PageCTA['variants']['orientation'];
+    /**
+     * Reverse the order of the default slot.
+     * @defaultValue false
+     */
+    reverse?: boolean;
+    /**
+     * @defaultValue 'outline'
+     */
+    variant?: PageCTA['variants']['variant'];
+    /**
+     * Display a list of Button under the description.
+     * `{ size: 'lg' }`{lang="ts-type"}
+     */
+    links?: ButtonProps[];
+    ui?: PageCTA['slots'];
+}
+export interface PageCTASlots {
+    default(props?: {}): any;
+    title(props?: {}): any;
+    description(props?: {}): any;
+    links(props?: {}): any;
+}
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageCTAProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageCTAProps> & Readonly<{}>, {
+    reverse: boolean;
+    orientation: PageCTA["variants"]["orientation"];
+}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageCTASlots>;
+export default _default;
+type __VLS_WithSlots<T, S> = T & {
+    new (): {
+        $slots: S;
+    };
+};
