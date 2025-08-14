@@ -1,6 +1,6 @@
 import type { ContentNavigationItem } from '@nuxt/content';
 import type { AppConfig } from '@nuxt/schema';
-import type { LinkProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, ComponentConfig } from '@nuxt/ui';
+import type { ButtonProps, InputProps, LinkProps, ModalProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, ComponentConfig } from '@nuxt/ui';
 import type { UseFuseOptions } from '@vueuse/integrations/useFuse';
 import theme from '#build/ui-pro/content/content-search';
 type ContentSearch = ComponentConfig<typeof theme, AppConfig, 'contentSearch', 'uiPro'>;
@@ -27,17 +27,23 @@ export interface ContentSearchItem extends Omit<LinkProps, 'custom'>, CommandPal
      */
     icon?: string;
 }
-export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchLink> {
+export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchLink> extends /* @vue-ignore */ Pick<ModalProps, 'title' | 'description' | 'overlay' | 'transition' | 'content' | 'dismissible' | 'fullscreen' | 'modal' | 'portal'> {
     /**
-     * The icon displayed in the search input.
+     * The icon displayed in the input.
      * @defaultValue appConfig.ui.icons.search
      * @IconifyIcon
      */
     icon?: string;
     /**
-     * Placeholder for the command palette search input.
+     * The placeholder text for the input.
+     * @defaultValue t('commandPalette.placeholder')
      */
-    placeholder?: string;
+    placeholder?: InputProps['placeholder'];
+    /**
+     * Automatically focus the input when component is mounted.
+     * @defaultValue true
+     */
+    autofocus?: boolean;
     /** When `true`, the loading icon will be displayed. */
     loading?: boolean;
     /**
@@ -46,6 +52,19 @@ export interface ContentSearchProps<T extends ContentSearchLink = ContentSearchL
      * @IconifyIcon
      */
     loadingIcon?: string;
+    /**
+     * Display a close button in the input (useful when inside a Modal for example).
+     * `{ size: 'md', color: 'neutral', variant: 'ghost' }`{lang="ts-type"}
+     * @emits 'update:open'
+     * @defaultValue true
+     */
+    close?: boolean | Partial<ButtonProps>;
+    /**
+     * The icon displayed in the close button.
+     * @defaultValue appConfig.ui.icons.close
+     * @IconifyIcon
+     */
+    closeIcon?: string;
     /**
      * Keyboard shortcut to open the search (used by [`defineShortcuts`](https://ui.nuxt.com/composables/define-shortcuts))
      * @defaultValue 'meta_k'
@@ -80,7 +99,7 @@ declare const _default: <T extends ContentSearchLink>(__VLS_props: NonNullable<A
         searchTerm?: string;
     }) & Partial<{}>> & import("vue").PublicProps;
     expose(exposed: import("vue").ShallowUnwrapRef<{
-        commandPaletteRef: Readonly<import("vue").ShallowRef<any>>;
+        commandPaletteRef: Readonly<import("vue").ShallowRef<import("vue").ShallowUnwrapRef<{}> | null>>;
     }>): void;
     attrs: any;
     slots: ContentSearchSlots;
@@ -90,5 +109,5 @@ declare const _default: <T extends ContentSearchLink>(__VLS_props: NonNullable<A
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

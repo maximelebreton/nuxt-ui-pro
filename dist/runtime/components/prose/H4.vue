@@ -13,7 +13,7 @@ const props = defineProps({
 });
 defineSlots();
 const appConfig = useAppConfig();
-const { headings } = useRuntimeConfig().public.mdc;
+const { headings } = useRuntimeConfig().public?.mdc || {};
 const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.prose?.h4 || {} })());
 const generate = computed(() => props.id && typeof headings?.anchorLinks === "object" && headings.anchorLinks.h4);
 </script>

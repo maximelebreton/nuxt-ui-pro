@@ -18,7 +18,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.prose?.acc
 
 <template>
   <div :class="ui({ class: props.class })">
-    <slot mdc-unwrap="p">
+    <slot>
       {{ description }}
     </slot>
   </div>

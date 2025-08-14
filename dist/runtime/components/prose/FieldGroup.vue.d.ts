@@ -9,7 +9,7 @@ export interface ProseFieldGroupProps {
 export interface ProseFieldGroupSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseFieldGroupProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseFieldGroupProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseFieldGroupSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseFieldGroupProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseFieldGroupProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseFieldGroupSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

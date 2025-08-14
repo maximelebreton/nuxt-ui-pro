@@ -6,6 +6,7 @@ import theme from "#build/ui-pro/dashboard-sidebar-collapse";
 import { ref, computed } from "vue";
 import { useForwardProps } from "reka-ui";
 import { reactivePick } from "@vueuse/core";
+import UButton from "@nuxt/ui/components/Button.vue";
 import { useAppConfig } from "#imports";
 import { useLocalePro } from "../composables/useLocalePro";
 import { useDashboard } from "../utils/dashboard";

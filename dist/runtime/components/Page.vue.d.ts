@@ -16,7 +16,7 @@ export interface PageSlots {
     default(props?: {}): any;
     right(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

@@ -3,12 +3,13 @@ import theme from "#build/ui-pro/prose/pre";
 </script>
 
 <script setup>
-import { ref, computed } from "vue";
+import { computed } from "vue";
 import { useClipboard } from "@vueuse/core";
+import UButton from "@nuxt/ui/components/Button.vue";
 import { useAppConfig } from "#imports";
 import { useLocalePro } from "../../composables/useLocalePro";
-import CodeIcon from "./CodeIcon.vue";
 import { tv } from "../../utils/tv";
+import UCodeIcon from "./CodeIcon.vue";
 const props = defineProps({
   icon: { type: String, required: false },
   code: { type: String, required: false },
@@ -22,23 +23,15 @@ const props = defineProps({
 });
 defineSlots();
 const { t } = useLocalePro();
-const clipboard = useClipboard();
+const { copy, copied } = useClipboard();
 const appConfig = useAppConfig();
 const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.prose?.pre || {} })());
-const copied = ref(false);
-function copy() {
-  clipboard.copy(props.code || "");
-  copied.value = true;
-  setTimeout(() => {
-    copied.value = false;
-  }, 2e3);
-}
 </script>
 
 <template>
   <div :class="ui.root({ class: [props.ui?.root], filename: !!filename })">
     <div v-if="filename && !hideHeader" :class="ui.header({ class: props.ui?.header })">
-      <CodeIcon :icon="icon" :filename="filename" :class="ui.icon({ class: props.ui?.icon })" />
+      <UCodeIcon :icon="icon" :filename="filename" :class="ui.icon({ class: props.ui?.icon })" />
 
       <span :class="ui.filename({ class: props.ui?.filename })">{{ filename }}</span>
     </div>
@@ -51,10 +44,10 @@ function copy() {
       :aria-label="t('prose.pre.copy')"
       :class="ui.copy({ class: props.ui?.copy })"
       tabindex="-1"
-      @click="copy"
+      @click="copy(props.code || '')"
     />
 
-    <pre :class="ui.base({ class: [props.class, props.ui?.base] })" v-bind="$attrs"><slot /></pre>
+    <pre :class="ui.base({ class: [props.ui?.base, props.class] })" v-bind="$attrs"><slot /></pre>
   </div>
 </template>
 

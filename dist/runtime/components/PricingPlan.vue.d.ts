@@ -97,8 +97,10 @@ export interface PricingPlanSlots {
     header(props?: {}): any;
     body(props?: {}): any;
     footer(props?: {}): any;
+    tagline(props?: {}): any;
+    terms(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PricingPlanProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PricingPlanProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PricingPlanProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PricingPlanProps> & Readonly<{}>, {
     orientation: PricingPlan["variants"]["orientation"];
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PricingPlanSlots>;
 export default _default;

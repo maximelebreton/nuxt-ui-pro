@@ -60,8 +60,18 @@ export default defineLocale({
       caption: "Narx planlarini taqqoslash"
     },
     prose: {
+      codeCollapse: {
+        name: "kod",
+        openText: "Kengaytirish",
+        closeText: "Yig'ish"
+      },
+      collapsible: {
+        name: "xususiyatlar",
+        openText: "Ko'rsatish",
+        closeText: "Yashirish"
+      },
       pre: {
-        copy: "Kodni nusxalash"
+        copy: "Koddan buferga nusxa olish"
       }
     }
   }

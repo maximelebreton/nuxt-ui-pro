@@ -22,7 +22,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.prose?.fie
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div :class="ui.container({ class: props.ui?.container })">
       <span v-if="name" :class="ui.name({ class: props.ui?.name })">
         {{ name }}

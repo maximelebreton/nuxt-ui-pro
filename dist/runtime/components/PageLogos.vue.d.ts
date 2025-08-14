@@ -22,7 +22,7 @@ export interface PageLogosProps {
 export interface PageLogosSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageLogosProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageLogosProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageLogosProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageLogosProps> & Readonly<{}>, {
     marquee: boolean | PageMarqueeProps;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageLogosSlots>;
 export default _default;

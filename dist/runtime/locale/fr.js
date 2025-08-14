@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Comparaison des plans de prix"
     },
     prose: {
+      codeCollapse: {
+        name: "code",
+        openText: "D\xE9velopper",
+        closeText: "R\xE9duire"
+      },
+      collapsible: {
+        name: "propri\xE9t\xE9s",
+        openText: "Afficher",
+        closeText: "Masquer"
+      },
       pre: {
         copy: "Copier le code dans le presse-papiers"
       }

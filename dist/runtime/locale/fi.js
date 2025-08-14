@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Hinnoitellut suunnitelmat"
     },
     prose: {
+      codeCollapse: {
+        name: "koodi",
+        openText: "Laajenna",
+        closeText: "Supista"
+      },
+      collapsible: {
+        name: "ominaisuudet",
+        openText: "N\xE4yt\xE4",
+        closeText: "Piilota"
+      },
       pre: {
         copy: "Kopioi koodi leikep\xF6yd\xE4lle"
       }

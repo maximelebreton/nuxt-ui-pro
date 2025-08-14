@@ -10,7 +10,7 @@ export interface ProseCodePreviewSlots {
     default(props?: {}): any;
     code(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCodePreviewProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCodePreviewProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCodePreviewSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCodePreviewProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCodePreviewProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCodePreviewSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

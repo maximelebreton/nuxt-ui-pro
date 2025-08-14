@@ -1,8 +1,3 @@
-const toggleSide = [
-  "left",
-  "right"
-] as const
-
 export default {
   "slots": {
     "root": "bg-default/75 backdrop-blur border-b border-default h-(--ui-header-height) sticky top-0 z-50",

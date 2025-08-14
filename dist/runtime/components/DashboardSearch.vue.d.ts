@@ -1,19 +1,25 @@
 import type { AppConfig } from '@nuxt/schema';
-import type { CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, ComponentConfig } from '@nuxt/ui';
+import type { ButtonProps, InputProps, ModalProps, CommandPaletteProps, CommandPaletteSlots, CommandPaletteGroup, CommandPaletteItem, ComponentConfig } from '@nuxt/ui';
 import type { UseFuseOptions } from '@vueuse/integrations/useFuse';
 import theme from '#build/ui-pro/dashboard-search';
 type DashboardSearch = ComponentConfig<typeof theme, AppConfig, 'dashboardSearch', 'uiPro'>;
-export interface DashboardSearchProps<T extends CommandPaletteItem = CommandPaletteItem> {
+export interface DashboardSearchProps<T extends CommandPaletteItem = CommandPaletteItem> extends /* @vue-ignore */ Pick<ModalProps, 'title' | 'description' | 'overlay' | 'transition' | 'content' | 'dismissible' | 'fullscreen' | 'modal' | 'portal'> {
     /**
-     * The icon displayed in the search input.
+     * The icon displayed in the input.
      * @defaultValue appConfig.ui.icons.search
      * @IconifyIcon
      */
     icon?: string;
     /**
-     * Placeholder for the command palette search input.
+     * The placeholder text for the input.
+     * @defaultValue t('commandPalette.placeholder')
      */
-    placeholder?: string;
+    placeholder?: InputProps['placeholder'];
+    /**
+     * Automatically focus the input when component is mounted.
+     * @defaultValue true
+     */
+    autofocus?: boolean;
     /** When `true`, the loading icon will be displayed. */
     loading?: boolean;
     /**
@@ -22,6 +28,19 @@ export interface DashboardSearchProps<T extends CommandPaletteItem = CommandPale
      * @IconifyIcon
      */
     loadingIcon?: string;
+    /**
+     * Display a close button in the input (useful when inside a Modal for example).
+     * `{ size: 'md', color: 'neutral', variant: 'ghost' }`{lang="ts-type"}
+     * @emits 'update:open'
+     * @defaultValue true
+     */
+    close?: boolean | Partial<ButtonProps>;
+    /**
+     * The icon displayed in the close button.
+     * @defaultValue appConfig.ui.icons.close
+     * @IconifyIcon
+     */
+    closeIcon?: string;
     /**
      * Keyboard shortcut to open the search (used by [`defineShortcuts`](https://ui.nuxt.com/composables/define-shortcuts))
      * @defaultValue 'meta_k'
@@ -48,7 +67,7 @@ declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardS
     open?: boolean;
     searchTerm?: string;
 }, {
-    commandPaletteRef: Readonly<import("vue").ShallowRef<any>>;
+    commandPaletteRef: Readonly<import("vue").ShallowRef<import("vue").ShallowUnwrapRef<{}> | null>>;
 }, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:open": (value: boolean) => any;
     "update:searchTerm": (value: string) => any;
@@ -59,6 +78,7 @@ declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardS
     "onUpdate:open"?: ((value: boolean) => any) | undefined;
     "onUpdate:searchTerm"?: ((value: string) => any) | undefined;
 }>, {
+    close: boolean | Partial<ButtonProps>;
     colorMode: boolean;
     shortcut: string;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, DashboardSearchSlots>;

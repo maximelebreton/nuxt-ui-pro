@@ -9,7 +9,7 @@ export interface ProseTableProps {
 export interface ProseTableSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseTableProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseTableProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseTableSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseTableProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseTableProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseTableSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

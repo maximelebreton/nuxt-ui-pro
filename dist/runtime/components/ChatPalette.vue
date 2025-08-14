@@ -18,7 +18,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.chatPalett
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div :class="ui.content({ class: props.ui?.content })">
       <Slot compact>
         <slot />

@@ -48,7 +48,7 @@ export interface BlogPostSlots {
     body(props?: {}): any;
     footer(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<BlogPostProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<BlogPostProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<BlogPostProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<BlogPostProps> & Readonly<{}>, {
     orientation: BlogPost["variants"]["orientation"];
     as: any;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, BlogPostSlots>;

@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "\u0695\u06CE\u0686\u0648\u0648\u06CC \u067E\u06D5\u06CC\u06A9\u06D5\u0631\u062F\u0627\u0646"
     },
     prose: {
+      codeCollapse: {
+        name: "\u06A9\u06C6\u062F",
+        openText: "\u0641\u0631\u0627\u0648\u0627\u0646\u06A9\u0631\u062F\u0646",
+        closeText: "\u062F\u0627\u062E\u0633\u062A\u0646"
+      },
+      collapsible: {
+        name: "\u062A\u0627\u06CC\u0628\u06D5\u062A\u0645\u06D5\u0646\u062F\u06CC\u06CC\u06D5\u06A9\u0627\u0646",
+        openText: "\u067E\u06CC\u0634\u0627\u0646\u062F\u0627\u0646",
+        closeText: "\u0634\u0627\u0631\u062F\u0646\u06D5\u0648\u06D5"
+      },
       pre: {
         copy: "\u0644\u06D5\u0628\u06D5\u0631\u06AF\u0631\u062A\u0646\u06D5\u0648\u06D5\u06CC \u06A9\u06C6\u062F"
       }

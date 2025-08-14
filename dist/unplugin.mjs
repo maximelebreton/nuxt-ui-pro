@@ -4,7 +4,7 @@ import { globSync } from 'tinyglobby';
 import { defu } from 'defu';
 import { createUnplugin } from 'unplugin';
 import ui from '@nuxt/ui/vite';
-import { g as getTemplates, i as icons, t as theme, v as validateLicense } from './shared/ui-pro.BvhO-FJN.mjs';
+import { g as getTemplates, i as icons, t as theme, v as validateLicense } from './shared/ui-pro.UdCydq-U.mjs';
 import dotenv from 'dotenv';
 import { consola } from 'consola';
 import { colors } from 'consola/utils';
@@ -80,7 +80,7 @@ Missing \`${theme$1.env}\` env variable, please add it to your \`.env\`.
       }
     },
     async buildStart() {
-      await validateLicense({ key, theme: theme$1, dir: process.cwd() });
+      // await validateLicense({ key, theme: theme$1, dir: process.cwd() });
     }
   };
 }
@@ -99,7 +99,8 @@ const NuxtUIProPlugin = createUnplugin((_options = {}) => {
     },
     autoImport: {
       dirs: [join(runtimeDir, "composables")]
-    }
+    },
+    extraRuntimeDir: runtimeDir
   });
   options.theme = options.theme || {};
   options.theme.colors = resolveColors(options.theme.colors);

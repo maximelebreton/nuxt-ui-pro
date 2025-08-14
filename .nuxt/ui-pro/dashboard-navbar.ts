@@ -1,8 +1,3 @@
-const toggleSide = [
-  "left",
-  "right"
-] as const
-
 export default {
   "slots": {
     "root": "h-(--ui-header-height) shrink-0 flex items-center justify-between border-b border-default px-4 sm:px-6 gap-1.5",

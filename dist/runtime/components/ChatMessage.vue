@@ -5,6 +5,10 @@ import theme from "#build/ui-pro/chat-message";
 <script setup>
 import { computed } from "vue";
 import { Primitive } from "reka-ui";
+import UButton from "@nuxt/ui/components/Button.vue";
+import UTooltip from "@nuxt/ui/components/Tooltip.vue";
+import UAvatar from "@nuxt/ui/components/Avatar.vue";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { omit } from "@nuxt/ui/utils";
 import { useAppConfig } from "#imports";
 import { tv } from "../utils/tv";
@@ -41,7 +45,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.chatMessag
 </script>
 
 <template>
-  <Primitive :as="as" :data-role="role" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :data-role="role" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div :class="ui.container({ class: props.ui?.container })">
       <div v-if="icon || avatar || !!slots.leading" :class="ui.leading({ class: props.ui?.leading })">
         <slot name="leading" :avatar="avatar">
@@ -51,7 +55,15 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.chatMessag
       </div>
 
       <div v-if="content || !!slots.content" :class="ui.content({ class: props.ui?.content })">
-        <slot name="content" :content="content">
+        <slot
+          name="content"
+          :content="content"
+          :reasoning="reasoning"
+          :experimental_attachments="experimental_attachments"
+          :annotations="annotations"
+          :tool-invocations="toolInvocations"
+          :parts="parts"
+        >
           {{ content }}
         </slot>
       </div>

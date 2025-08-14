@@ -10,6 +10,7 @@ export interface ContentSurroundLink extends ContentNavigationItem {
      */
     icon?: string;
     class?: any;
+    ui?: Pick<ContentSurround['slots'], 'link' | 'linkLeading' | 'linkLeadingIcon' | 'linkTitle' | 'linkDescription'>;
 }
 export interface ContentSurroundProps<T extends ContentSurroundLink = ContentSurroundLink> {
     /**
@@ -53,5 +54,5 @@ declare const _default: <T extends ContentSurroundLink>(__VLS_props: NonNullable
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

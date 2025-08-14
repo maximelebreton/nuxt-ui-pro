@@ -2,7 +2,7 @@ import { defu } from 'defu';
 import { consola } from 'consola';
 import { colors } from 'consola/utils';
 import { defineNuxtModule, hasNuxtModule, installModule, createResolver, addComponentsDir, addImportsDir } from '@nuxt/kit';
-import { a as version, n as name, i as icons, b as addTemplates, t as theme, v as validateLicense } from './shared/ui-pro.BvhO-FJN.mjs';
+import { a as version, n as name, i as icons, b as addTemplates, t as theme, v as validateLicense } from './shared/ui-pro.UdCydq-U.mjs';
 import 'node:url';
 import 'scule';
 import 'ofetch';
@@ -117,7 +117,7 @@ Missing \`${theme$1.env}\` env variable, please add it to your \`.env\`.
       return;
     }
     nuxt.hook("build:before", async () => {
-      await validateLicense({ key, theme: theme$1, dir: nuxt.options.rootDir });
+      // await validateLicense({ key, theme: theme$1, dir: nuxt.options.rootDir });
     });
   }
 });

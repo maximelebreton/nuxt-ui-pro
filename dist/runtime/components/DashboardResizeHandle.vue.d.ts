@@ -9,7 +9,7 @@ export interface DashboardResizeHandleProps {
 export interface DashboardResizeHandleSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardResizeHandleProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardResizeHandleProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, DashboardResizeHandleSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardResizeHandleProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardResizeHandleProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, DashboardResizeHandleSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

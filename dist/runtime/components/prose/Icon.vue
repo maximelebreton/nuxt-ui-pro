@@ -4,6 +4,7 @@ import theme from "#build/ui-pro/prose/icon";
 
 <script setup>
 import { computed } from "vue";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../../utils/tv";
 const props = defineProps({

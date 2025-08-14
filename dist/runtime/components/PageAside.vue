@@ -18,7 +18,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.pageAside 
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div :class="ui.container({ class: props.ui?.container })">
       <div v-if="!!slots.top" :class="ui.top({ class: props.ui?.top })">
         <div :class="ui.topHeader({ class: props.ui?.topHeader })" />

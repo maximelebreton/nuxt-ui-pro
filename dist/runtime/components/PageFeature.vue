@@ -5,8 +5,10 @@ import theme from "#build/ui-pro/page-feature";
 <script setup>
 import { computed } from "vue";
 import { Primitive } from "reka-ui";
-import { getSlotChildrenText } from "../utils";
+import ULink from "@nuxt/ui/components/Link.vue";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useAppConfig } from "#imports";
+import { getSlotChildrenText } from "../utils";
 import { tv } from "../utils/tv";
 defineOptions({ inheritAttrs: false });
 const props = defineProps({
@@ -34,7 +36,7 @@ const ariaLabel = computed(() => {
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" :class="ui.root({ class: [props.class, props.ui?.root] })" @click="onClick">
+  <Primitive :as="as" :data-orientation="orientation" :class="ui.root({ class: [props.ui?.root, props.class] })" @click="onClick">
     <div v-if="icon || !!slots.leading" :class="ui.leading({ class: props.ui?.leading })">
       <slot name="leading">
         <UIcon v-if="icon" :name="icon" :class="ui.leadingIcon({ class: props.ui?.leadingIcon })" />

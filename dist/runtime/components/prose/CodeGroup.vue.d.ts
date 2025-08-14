@@ -20,7 +20,7 @@ export interface ProseCodeGroupSlots {
 }
 declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCodeGroupProps & {
     modelValue?: string;
-}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+}, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:modelValue": (value: string | undefined) => any;
 }, string, import("vue").PublicProps, Readonly<ProseCodeGroupProps & {
     modelValue?: string;

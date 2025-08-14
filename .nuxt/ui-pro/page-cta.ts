@@ -1,8 +1,3 @@
-const orientation = [
-  "horizontal",
-  "vertical"
-] as const
-
 const variant = [
   "solid",
   "outline",
@@ -16,9 +11,12 @@ export default {
     "root": "relative isolate rounded-xl overflow-hidden",
     "container": "flex flex-col lg:grid px-6 py-12 sm:px-12 sm:py-24 lg:px-16 lg:py-24 gap-8 sm:gap-16",
     "wrapper": "",
+    "header": "",
     "title": "text-3xl sm:text-4xl text-pretty tracking-tight font-bold text-highlighted",
     "description": "text-base sm:text-lg text-muted",
-    "links": "mt-8 flex flex-wrap gap-x-6 gap-y-3"
+    "body": "mt-8",
+    "footer": "mt-8",
+    "links": "flex flex-wrap gap-x-6 gap-y-3"
   },
   "variants": {
     "orientation": {

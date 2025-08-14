@@ -10,17 +10,17 @@ export interface ProseCollapsibleProps {
     icon?: string;
     /**
      * The name displayed in the trigger label.
-     * @defaultValue 'properties'
+     * @defaultValue t('prose.collapsible.name')
      */
     name?: string;
     /**
      * The text displayed when the collapsible is open.
-     * @defaultValue 'Show'
+     * @defaultValue t('prose.collapsible.openText')
      */
     openText?: string;
     /**
      * The text displayed when the collapsible is closed.
-     * @defaultValue 'Hide'
+     * @defaultValue t('prose.collapsible.closeText')
      */
     closeText?: string;
     class?: any;
@@ -29,11 +29,7 @@ export interface ProseCollapsibleProps {
 export interface ProseCollapsibleSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCollapsibleProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCollapsibleProps> & Readonly<{}>, {
-    name: string;
-    openText: string;
-    closeText: string;
-}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCollapsibleSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCollapsibleProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCollapsibleProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCollapsibleSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

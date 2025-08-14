@@ -4,6 +4,7 @@ import theme from "#build/ui-pro/prose/accordion";
 
 <script setup>
 import { computed, ref, onBeforeUpdate } from "vue";
+import UAccordion from "@nuxt/ui/components/Accordion.vue";
 import { useAppConfig } from "#imports";
 import { transformUI } from "../../utils";
 import { tv } from "../../utils/tv";

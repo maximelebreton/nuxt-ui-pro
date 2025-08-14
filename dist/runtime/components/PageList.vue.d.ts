@@ -10,7 +10,7 @@ export interface PageListProps {
 export interface PageListSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageListProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageListProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageListProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageListProps> & Readonly<{}>, {
     divide: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageListSlots>;
 export default _default;

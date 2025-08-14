@@ -4,6 +4,7 @@
 
 <script setup>
 import { computed } from "vue";
+import UButton from "@nuxt/ui/components/Button.vue";
 import { useColorMode, useAppConfig } from "#imports";
 import { useLocalePro } from "../../composables/useLocalePro";
 defineOptions({ inheritAttrs: false });

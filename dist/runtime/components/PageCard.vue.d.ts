@@ -60,7 +60,7 @@ export interface PageCardSlots {
     footer(props?: {}): any;
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageCardProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageCardProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageCardProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageCardProps> & Readonly<{}>, {
     orientation: PageCard["variants"]["orientation"];
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageCardSlots>;
 export default _default;

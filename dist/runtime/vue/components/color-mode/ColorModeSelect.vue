@@ -4,10 +4,11 @@
 
 <script setup>
 import { computed } from "vue";
+import USelectMenu from "@nuxt/ui/components/SelectMenu.vue";
 import { useAppConfig, useColorMode } from "#imports";
 import { useLocalePro } from "../../../composables/useLocalePro";
 defineOptions({ inheritAttrs: false });
-defineProps(void 0);
+defineProps({});
 const { t } = useLocalePro();
 const colorMode = useColorMode();
 const appConfig = useAppConfig();

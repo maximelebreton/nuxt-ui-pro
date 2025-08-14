@@ -19,7 +19,7 @@ export interface ProseCardSlots {
     default(props?: {}): any;
     title(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCardProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCardProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCardSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCardProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCardProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCardSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

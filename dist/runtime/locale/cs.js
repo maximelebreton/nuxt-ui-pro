@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Porovn\xE1n\xED cenov\xFDch pl\xE1n\u016F"
     },
     prose: {
+      codeCollapse: {
+        name: "k\xF3d",
+        openText: "Rozbalit",
+        closeText: "Sbalit"
+      },
+      collapsible: {
+        name: "vlastnosti",
+        openText: "Zobrazit",
+        closeText: "Skr\xFDt"
+      },
       pre: {
         copy: "Kop\xEDrovat k\xF3d do schr\xE1nky"
       }

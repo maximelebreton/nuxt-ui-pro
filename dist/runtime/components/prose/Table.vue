@@ -16,7 +16,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.prose?.tab
 </script>
 
 <template>
-  <div :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <div :class="ui.root({ class: [props.ui?.root, props.class] })">
     <table :class="ui.base({ class: props.ui?.base })">
       <slot />
     </table>

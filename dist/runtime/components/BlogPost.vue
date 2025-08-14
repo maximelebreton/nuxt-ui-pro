@@ -5,6 +5,10 @@ import theme from "#build/ui-pro/blog-post";
 <script setup>
 import { computed } from "vue";
 import { Primitive, useDateFormatter } from "reka-ui";
+import ULink from "@nuxt/ui/components/Link.vue";
+import UBadge from "@nuxt/ui/components/Badge.vue";
+import UAvatar from "@nuxt/ui/components/Avatar.vue";
+import UAvatarGroup from "@nuxt/ui/components/AvatarGroup.vue";
 import ImageComponent from "#build/ui-image-component";
 import { useLocale, useAppConfig } from "#imports";
 import { getSlotChildrenText } from "../utils";
@@ -64,7 +68,7 @@ const ariaLabel = computed(() => {
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" :class="ui.root({ class: [props.class, props.ui?.root] })" @click="onClick">
+  <Primitive :as="as" :data-orientation="orientation" :class="ui.root({ class: [props.ui?.root, props.class] })" @click="onClick">
     <div v-if="image || !!slots.header" :class="ui.header({ class: props.ui?.header })">
       <slot name="header">
         <component
@@ -93,11 +97,11 @@ const ariaLabel = computed(() => {
             <UBadge v-if="badge" color="neutral" variant="subtle" v-bind="typeof badge === 'string' ? { label: badge } : badge" :class="ui.badge({ class: props.ui?.badge })" />
           </slot>
 
-          <slot name="date">
-            <time v-if="date" :datetime="datetime" :class="ui.date({ class: props.ui?.date })">
+          <time v-if="date" :datetime="datetime" :class="ui.date({ class: props.ui?.date })">
+            <slot name="date">
               {{ date }}
-            </time>
-          </slot>
+            </slot>
+          </time>
         </div>
 
         <h2 v-if="title || !!slots.title" :class="ui.title({ class: props.ui?.title })">

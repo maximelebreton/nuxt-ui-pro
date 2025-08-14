@@ -3,6 +3,7 @@
 </script>
 
 <script setup>
+import USelectMenu from "@nuxt/ui/components/SelectMenu.vue";
 defineProps({
   locales: { type: Array, required: false }
 });
@@ -35,12 +36,22 @@ function getEmojiFlag(locale) {
     // Armenian -> Armenia
     ja: "jp",
     // Japanese -> Japan
+    kk: "kz",
+    // Kazakh -> Kazakhstan
     km: "kh",
     // Khmer -> Cambodia
     ko: "kr",
     // Korean -> South Korea
+    ky: "kg",
+    // Kyrgyz -> Kyrgyzstan
+    lb: "lu",
+    // Luxembourgish -> Luxembourg
+    ms: "my",
+    // Malay -> Malaysia
     nb: "no",
     // Norwegian Bokmål -> Norway
+    sl: "si",
+    // Slovenian -> Slovenia
     sv: "se",
     // Swedish -> Sweden
     uk: "ua",

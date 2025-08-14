@@ -26,7 +26,7 @@ export interface PageHeaderSlots {
     links(props?: {}): any;
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageHeaderProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageHeaderProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageHeaderSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageHeaderProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageHeaderProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageHeaderSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

@@ -4,9 +4,10 @@ import theme from "#build/ui-pro/chat-messages";
 
 <script setup>
 import { ref, computed, watch, nextTick, toRef, onMounted } from "vue";
-import { defu } from "defu";
 import { Presence } from "reka-ui";
+import { defu } from "defu";
 import { useElementBounding, useEventListener, watchThrottled } from "@vueuse/core";
+import UButton from "@nuxt/ui/components/Button.vue";
 import { omit } from "@nuxt/ui/utils";
 import { useAppConfig } from "#imports";
 import { tv } from "../utils/tv";
@@ -154,7 +155,7 @@ onMounted(() => {
   <div
     ref="el"
     :data-status="status"
-    :class="ui.root({ class: [props.class, props.ui?.root] })"
+    :class="ui.root({ class: [props.ui?.root, props.class] })"
     :style="{ '--last-message-height': `${lastMessageHeight}px` }"
   >
     <slot>

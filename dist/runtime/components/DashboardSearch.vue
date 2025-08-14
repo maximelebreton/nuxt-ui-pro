@@ -4,7 +4,11 @@ import theme from "#build/ui-pro/dashboard-search";
 
 <script setup>
 import { computed, useTemplateRef } from "vue";
+import { useForwardProps } from "reka-ui";
 import { defu } from "defu";
+import { reactivePick } from "@vueuse/core";
+import UModal from "@nuxt/ui/components/Modal.vue";
+import UCommandPalette from "@nuxt/ui/components/CommandPalette.vue";
 import { omit } from "@nuxt/ui/utils";
 import { useAppConfig, useColorMode, defineShortcuts, useRuntimeHook } from "#imports";
 import { useLocalePro } from "../composables/useLocalePro";
@@ -12,9 +16,12 @@ import { transformUI } from "../utils";
 import { tv } from "../utils/tv";
 const props = defineProps({
   icon: { type: String, required: false },
-  placeholder: { type: String, required: false },
+  placeholder: { type: null, required: false },
+  autofocus: { type: Boolean, required: false },
   loading: { type: Boolean, required: false },
   loadingIcon: { type: String, required: false },
+  close: { type: [Boolean, Object], required: false, default: true },
+  closeIcon: { type: String, required: false },
   shortcut: { type: String, required: false, default: "meta_k" },
   groups: { type: Array, required: false },
   fuse: { type: Object, required: false },
@@ -28,9 +35,10 @@ const searchTerm = defineModel("searchTerm", { type: String, ...{ default: "" } 
 useRuntimeHook("dashboard:search:toggle", () => {
   open.value = !open.value;
 });
-const appConfig = useAppConfig();
-const colorMode = useColorMode();
 const { t } = useLocalePro();
+const colorMode = useColorMode();
+const appConfig = useAppConfig();
+const commandPaletteProps = useForwardProps(reactivePick(props, "icon", "placeholder", "autofocus", "loading", "loadingIcon", "close", "closeIcon"));
 const proxySlots = omit(slots, ["content"]);
 const fuse = computed(() => defu({}, props.fuse, {
   fuseOptions: {}
@@ -89,20 +97,21 @@ defineExpose({
 </script>
 
 <template>
-  <UModal v-model:open="open" :class="ui.modal({ class: props.class })">
+  <UModal
+    v-model:open="open"
+    :title="t('dashboardSearch.title')"
+    :description="t('dashboardSearch.description')"
+    :class="ui.modal({ class: props.class })"
+  >
     <template #content>
       <slot name="content">
         <UCommandPalette
           ref="commandPaletteRef"
           v-model:search-term="searchTerm"
-          :icon="icon"
-          :placeholder="placeholder"
-          :loading="loading"
-          :loading-icon="loadingIcon"
+          v-bind="commandPaletteProps"
           :groups="groups"
           :fuse="fuse"
           :ui="transformUI(omit(ui, ['modal']), props.ui)"
-          close
           @update:model-value="onSelect"
           @update:open="open = $event"
         >

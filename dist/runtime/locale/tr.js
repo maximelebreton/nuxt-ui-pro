@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Fiyat planlar\u0131n\u0131 kar\u015F\u0131la\u015Ft\u0131r"
     },
     prose: {
+      codeCollapse: {
+        name: "kod",
+        openText: "Geni\u015Flet",
+        closeText: "Daralt"
+      },
+      collapsible: {
+        name: "\xF6zellikler",
+        openText: "G\xF6ster",
+        closeText: "Gizle"
+      },
       pre: {
         copy: "Kodu panoya kopyala"
       }

@@ -63,5 +63,5 @@ declare const _default: <T extends HeaderMode>(__VLS_props: NonNullable<Awaited<
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

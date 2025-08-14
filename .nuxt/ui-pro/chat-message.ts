@@ -19,7 +19,7 @@ export default {
     "leadingIcon": "shrink-0",
     "leadingAvatar": "shrink-0",
     "leadingAvatarSize": "",
-    "content": "relative text-pretty",
+    "content": "relative text-pretty min-w-0",
     "actions": [
       "opacity-0 group-hover/message:opacity-100 absolute bottom-0 flex items-center",
       "transition-opacity"

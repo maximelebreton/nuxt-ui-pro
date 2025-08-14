@@ -73,10 +73,10 @@ export interface ChatPromptSubmitProps extends /** @vue-ignore */ Pick<ButtonPro
     class?: any;
 }
 export interface ChatPromptSubmitEmits {
-    (e: 'stop'): void;
-    (e: 'reload'): void;
+    stop: [];
+    reload: [];
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatPromptSubmitProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {} & {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatPromptSubmitProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     stop: () => any;
     reload: () => any;
 }, string, import("vue").PublicProps, Readonly<ChatPromptSubmitProps> & Readonly<{

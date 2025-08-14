@@ -4,6 +4,7 @@ import theme from "#build/ui-pro/prose/h3";
 
 <script setup>
 import { computed } from "vue";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useRuntimeConfig, useAppConfig } from "#imports";
 import { tv } from "../../utils/tv";
 const props = defineProps({
@@ -13,7 +14,7 @@ const props = defineProps({
 });
 defineSlots();
 const appConfig = useAppConfig();
-const { headings } = useRuntimeConfig().public.mdc;
+const { headings } = useRuntimeConfig().public?.mdc || {};
 const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.prose?.h3 || {} })());
 const generate = computed(() => props.id && typeof headings?.anchorLinks === "object" && headings.anchorLinks.h3);
 </script>

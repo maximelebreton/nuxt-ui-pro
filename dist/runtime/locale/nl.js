@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Prijsplanvergelijking"
     },
     prose: {
+      codeCollapse: {
+        name: "code",
+        openText: "Uitvouwen",
+        closeText: "Invouwen"
+      },
+      collapsible: {
+        name: "eigenschappen",
+        openText: "Tonen",
+        closeText: "Verbergen"
+      },
       pre: {
         copy: "Code naar klembord kopi\xEBren"
       }

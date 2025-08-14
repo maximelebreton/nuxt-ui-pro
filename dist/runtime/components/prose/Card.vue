@@ -4,6 +4,8 @@ import theme from "#build/ui-pro/prose/card";
 
 <script setup>
 import { computed } from "vue";
+import ULink from "@nuxt/ui/components/Link.vue";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../../utils/tv";
 defineOptions({ inheritAttrs: false });
@@ -51,7 +53,7 @@ const ariaLabel = computed(() => (props.title || "Card link").trim());
     </p>
 
     <div v-if="!!slots.default" :class="ui.description({ class: props.ui?.description })">
-      <slot mdc-unwrap="p">
+      <slot>
         {{ description }}
       </slot>
     </div>

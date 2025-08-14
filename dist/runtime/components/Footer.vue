@@ -5,6 +5,7 @@ import theme from "#build/ui-pro/footer";
 <script setup>
 import { computed } from "vue";
 import { Primitive } from "reka-ui";
+import UContainer from "@nuxt/ui/components/Container.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../utils/tv";
 const props = defineProps({
@@ -18,7 +19,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.footer || 
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div v-if="!!slots.top" :class="ui.top({ class: props.ui?.top })">
       <slot name="top" />
     </div>

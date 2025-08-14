@@ -30,9 +30,10 @@ export interface ErrorSlots {
     default(props?: {}): any;
     statusCode(props?: {}): any;
     statusMessage(props?: {}): any;
+    message(props?: {}): any;
     links(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ErrorProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ErrorProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ErrorProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ErrorProps> & Readonly<{}>, {
     clear: boolean | Partial<ButtonProps>;
     as: any;
     redirect: string;

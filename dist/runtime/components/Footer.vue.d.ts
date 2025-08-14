@@ -18,7 +18,7 @@ export interface FooterSlots {
     top(props?: {}): any;
     bottom(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<FooterProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<FooterProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<FooterProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<FooterProps> & Readonly<{}>, {
     as: any;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, FooterSlots>;
 export default _default;

@@ -8,6 +8,8 @@ import { useAppConfig } from "#imports";
 import { useResizable } from "../composables/useResizable";
 import { useDashboard } from "../utils/dashboard";
 import { tv } from "../utils/tv";
+import UDashboardResizeHandle from "./DashboardResizeHandle.vue";
+defineOptions({ inheritAttrs: false });
 const props = defineProps({
   class: { type: null, required: false },
   ui: { type: null, required: false },
@@ -21,7 +23,7 @@ defineSlots();
 const appConfig = useAppConfig();
 const dashboardContext = useDashboard({ storageKey: "dashboard", unit: "%" });
 const id = `${dashboardContext.storageKey}-panel-${props.id || useId()}`;
-const { el, size, isDragging, onMouseDown, onTouchStart } = useResizable(id, toRef(() => ({ ...dashboardContext, ...props })));
+const { el, size, isDragging, onMouseDown, onTouchStart, onDoubleClick } = useResizable(id, toRef(() => ({ ...dashboardContext, ...props })));
 const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.dashboardPanel || {} })({
   size: !!size.value
 }));
@@ -31,8 +33,9 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.dashboardP
   <div
     :id="id"
     ref="el"
+    v-bind="$attrs"
     :data-dragging="isDragging"
-    :class="ui.root({ class: [props.class, props.ui?.root] })"
+    :class="ui.root({ class: [props.ui?.root, props.class] })"
     :style="[size ? { '--width': `${size}${dashboardContext.unit}` } : void 0]"
   >
     <slot>
@@ -46,13 +49,14 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.dashboardP
     </slot>
   </div>
 
-  <slot name="resize-handle" :on-mouse-down="onMouseDown" :on-touch-start="onTouchStart">
+  <slot name="resize-handle" :on-mouse-down="onMouseDown" :on-touch-start="onTouchStart" :on-double-click="onDoubleClick">
     <UDashboardResizeHandle
       v-if="resizable"
       :aria-controls="id"
       :class="ui.handle({ class: props.ui?.handle })"
       @mousedown="onMouseDown"
       @touchstart="onTouchStart"
+      @dblclick="onDoubleClick"
     />
   </slot>
 </template>

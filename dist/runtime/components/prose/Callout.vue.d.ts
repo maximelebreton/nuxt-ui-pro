@@ -16,7 +16,7 @@ export interface ProseCalloutProps {
 export interface ProseCalloutSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCalloutProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCalloutProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCalloutSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCalloutProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCalloutProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCalloutSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

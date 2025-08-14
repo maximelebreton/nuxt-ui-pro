@@ -19,7 +19,7 @@ export interface PageMarqueeProps {
 export interface PageMarqueeSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageMarqueeProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageMarqueeProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageMarqueeProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageMarqueeProps> & Readonly<{}>, {
     repeat: number;
     orientation: PageMarquee["variants"]["orientation"];
     overlay: boolean;

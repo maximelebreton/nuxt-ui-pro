@@ -1,11 +1,12 @@
 import type { AppConfig } from '@nuxt/schema';
-import type { ButtonProps, FormProps, FormFieldProps, FormSchema, FormSubmitEvent, SeparatorProps, ComponentConfig, InferInput } from '@nuxt/ui';
+import type { ButtonProps, FormProps, FormFieldProps, FormSchema, FormSubmitEvent, SeparatorProps, ComponentConfig, InferInput, PinInputProps } from '@nuxt/ui';
 import theme from '#build/ui-pro/auth-form';
 type AuthForm = ComponentConfig<typeof theme, AppConfig, 'authForm', 'uiPro'>;
 type AuthFormField = FormFieldProps & {
     name: string;
-    type?: 'checkbox' | 'select' | 'password' | 'text';
+    type?: 'checkbox' | 'select' | 'password' | 'text' | 'otp';
     defaultValue?: any;
+    otp?: PinInputProps;
 };
 export interface AuthFormProps<T extends FormSchema = FormSchema<object>, F extends AuthFormField = AuthFormField> {
     /**
@@ -42,7 +43,9 @@ export interface AuthFormProps<T extends FormSchema = FormSchema<object>, F exte
     validateOnInputDelay?: FormProps<T>['validateOnInputDelay'];
     disabled?: FormProps<T>['disabled'];
     loading?: ButtonProps['loading'];
+    loadingAuto?: FormProps<T>['loadingAuto'];
     class?: any;
+    onSubmit?: FormProps<T>['onSubmit'];
     ui?: AuthForm['slots'];
 }
 export type AuthFormEmits<T extends object> = {
@@ -58,7 +61,11 @@ export type AuthFormSlots<T extends object = object, F extends AuthFormField = A
     leading(props?: {}): any;
     title(props?: {}): any;
     description(props?: {}): any;
+    providers(props?: {}): any;
     validation(props?: {}): any;
+    submit(props: {
+        loading: boolean;
+    }): any;
     footer(props?: {}): any;
 } & DynamicFieldSlots<T, F> & DynamicFormFieldSlots<T>;
 declare const _default: <T extends FormSchema, F extends AuthFormField>(__VLS_props: NonNullable<Awaited<typeof __VLS_setup>>["props"], __VLS_ctx?: __VLS_PrettifyLocal<Pick<NonNullable<Awaited<typeof __VLS_setup>>, "attrs" | "emit" | "slots">>, __VLS_expose?: NonNullable<Awaited<typeof __VLS_setup>>["expose"], __VLS_setup?: Promise<{
@@ -66,7 +73,8 @@ declare const _default: <T extends FormSchema, F extends AuthFormField>(__VLS_pr
         readonly onSubmit?: ((payload: FormSubmitEvent<import("vue").Reactive<InferInput<T>>>) => any) | undefined;
     } & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, never>, "onSubmit"> & AuthFormProps<T, F> & Partial<{}>> & import("vue").PublicProps;
     expose(exposed: import("vue").ShallowUnwrapRef<{
-        formRef: Readonly<import("vue").ShallowRef<any>>;
+        formRef: Readonly<import("vue").ShallowRef<import("vue").ShallowUnwrapRef<import("@nuxt/ui").Form<T>> | null>>;
+        state: import("vue").Reactive<InferInput<T>>;
     }>): void;
     attrs: any;
     slots: AuthFormSlots<import("vue").Reactive<InferInput<T>>, F>;
@@ -76,5 +84,5 @@ declare const _default: <T extends FormSchema, F extends AuthFormField>(__VLS_pr
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

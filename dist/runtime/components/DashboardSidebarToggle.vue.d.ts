@@ -11,7 +11,7 @@ export interface DashboardSidebarToggleProps extends /** @vue-ignore */ Pick<But
     variant?: ButtonProps['variant'];
     class?: any;
 }
-declare const _default: import("vue").DefineComponent<DashboardSidebarToggleProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardSidebarToggleProps> & Readonly<{}>, {
+declare const _default: import("vue").DefineComponent<DashboardSidebarToggleProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardSidebarToggleProps> & Readonly<{}>, {
     color: "error" | "info" | "primary" | "secondary" | "success" | "warning" | "neutral";
     variant: "link" | "solid" | "outline" | "soft" | "subtle" | "ghost";
     side: "left" | "right";

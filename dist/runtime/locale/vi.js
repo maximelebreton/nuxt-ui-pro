@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "So s\xE1nh c\xE1c k\u1EBF ho\u1EA1ch gi\xE1"
     },
     prose: {
+      codeCollapse: {
+        name: "m\xE3",
+        openText: "M\u1EDF r\u1ED9ng",
+        closeText: "Thu g\u1ECDn"
+      },
+      collapsible: {
+        name: "thu\u1ED9c t\xEDnh",
+        openText: "Hi\u1EC3n th\u1ECB",
+        closeText: "\u1EA8n"
+      },
       pre: {
         copy: "Sao ch\xE9p m\xE3 v\xE0o b\u1ED9 nh\u1EDB t\u1EA1m"
       }

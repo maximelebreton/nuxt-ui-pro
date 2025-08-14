@@ -8,6 +8,8 @@ export interface PageLink extends Omit<LinkProps, 'custom'> {
      * @IconifyIcon
      */
     icon?: string;
+    class?: any;
+    ui?: Pick<PageLinks['slots'], 'item' | 'link' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkLeadingIcon'>;
 }
 export interface PageLinksProps<T extends PageLink = PageLink> {
     /**
@@ -42,5 +44,5 @@ declare const _default: <T extends PageLink>(__VLS_props: NonNullable<Awaited<ty
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

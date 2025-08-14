@@ -39,7 +39,7 @@ export interface DashboardNavbarSlots {
     right(props: DashboardNavbarSlotsProps): any;
     toggle(props: DashboardNavbarSlotsProps): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardNavbarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardNavbarProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardNavbarProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardNavbarProps> & Readonly<{}>, {
     toggle: boolean | Partial<ButtonProps>;
     toggleSide: "left" | "right";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, DashboardNavbarSlots>;

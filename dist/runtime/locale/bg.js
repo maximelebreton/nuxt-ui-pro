@@ -60,8 +60,18 @@ export default defineLocale({
       caption: "\u0426\u0435\u043D\u043E\u0432\u0430 \u0442\u0430\u0431\u043B\u0438\u0446\u0430"
     },
     prose: {
+      codeCollapse: {
+        name: "\u043A\u043E\u0434",
+        openText: "\u0420\u0430\u0437\u0433\u044A\u043D\u0438",
+        closeText: "\u0421\u0433\u044A\u043D\u0438"
+      },
+      collapsible: {
+        name: "\u0441\u0432\u043E\u0439\u0441\u0442\u0432\u0430",
+        openText: "\u041F\u043E\u043A\u0430\u0436\u0438",
+        closeText: "\u0421\u043A\u0440\u0438\u0439"
+      },
       pre: {
-        copy: "\u041A\u043E\u043F\u0438\u0440\u0430\u0439"
+        copy: "\u041A\u043E\u043F\u0438\u0440\u0430\u0439 \u043A\u043E\u0434\u0430 \u0432 \u043A\u043B\u0438\u043F\u0431\u043E\u0440\u0434\u0430"
       }
     }
   }

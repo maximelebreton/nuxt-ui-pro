@@ -5,6 +5,9 @@ import theme from "#build/ui-pro/user";
 <script setup>
 import { computed } from "vue";
 import { Primitive } from "reka-ui";
+import UChip from "@nuxt/ui/components/Chip.vue";
+import UAvatar from "@nuxt/ui/components/Avatar.vue";
+import ULink from "@nuxt/ui/components/Link.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../utils/tv";
 defineOptions({ inheritAttrs: false });
@@ -32,7 +35,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.user || {}
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" :class="ui.root({ class: [props.class, props.ui?.root] })" @click="onClick">
+  <Primitive :as="as" :data-orientation="orientation" :class="ui.root({ class: [props.ui?.root, props.class] })" @click="onClick">
     <slot name="avatar">
       <UChip v-if="chip && avatar" inset v-bind="typeof chip === 'object' ? chip : {}" :size="size">
         <UAvatar :alt="name" v-bind="avatar" :size="size" :class="ui.avatar({ class: props.ui?.avatar })" />

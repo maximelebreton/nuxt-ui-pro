@@ -35,7 +35,7 @@ export interface UserSlots {
     description(props?: {}): any;
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<UserProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<UserProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<UserProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<UserProps> & Readonly<{}>, {
     orientation: User["variants"]["orientation"];
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, UserSlots>;
 export default _default;

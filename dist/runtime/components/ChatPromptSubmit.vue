@@ -4,6 +4,7 @@ import theme from "#build/ui-pro/chat-prompt-submit";
 
 <script setup>
 import { computed } from "vue";
+import UButton from "@nuxt/ui/components/Button.vue";
 import { useAppConfig } from "#imports";
 import { useLocalePro } from "../composables/useLocalePro";
 import { transformUI } from "../utils";
@@ -68,7 +69,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.chatPrompt
   <UButton
     :aria-label="t('chatPromptSubmit.label')"
     v-bind="buttonProps"
-    :class="ui.base({ class: [props.class, props.ui?.base] })"
+    :class="ui.base({ class: [props.ui?.base, props.class] })"
     :ui="transformUI(ui, props.ui)"
   >
     <template v-for="(_, name) in slots" #[name]="slotData">

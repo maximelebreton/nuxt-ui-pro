@@ -5,7 +5,7 @@ export interface ProseAccordionProps {
 export interface ProseAccordionSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseAccordionProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseAccordionProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseAccordionProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseAccordionProps> & Readonly<{}>, {
     type: "single" | "multiple";
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseAccordionSlots>;
 export default _default;

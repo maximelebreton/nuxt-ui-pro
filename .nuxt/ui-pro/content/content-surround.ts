@@ -1,8 +1,3 @@
-const direction = [
-  "left",
-  "right"
-] as const
-
 export default {
   "slots": {
     "root": "grid grid-cols-1 sm:grid-cols-2 gap-8",

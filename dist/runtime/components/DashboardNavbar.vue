@@ -6,9 +6,12 @@ import theme from "#build/ui-pro/dashboard-navbar";
 import { computed } from "vue";
 import { Primitive } from "reka-ui";
 import { createReusableTemplate } from "@vueuse/core";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useAppConfig } from "#imports";
 import { useDashboard } from "../utils/dashboard";
 import { tv } from "../utils/tv";
+import UDashboardSidebarToggle from "./DashboardSidebarToggle.vue";
+defineOptions({ inheritAttrs: false });
 const props = defineProps({
   as: { type: null, required: false },
   icon: { type: String, required: false },
@@ -37,7 +40,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.dashboardN
     </slot>
   </DefineToggleTemplate>
 
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" v-bind="$attrs" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div :class="ui.left({ class: props.ui?.left })">
       <ReuseToggleTemplate v-if="toggleSide === 'left'" />
 

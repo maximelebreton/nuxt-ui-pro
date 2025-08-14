@@ -32,7 +32,7 @@ export interface PageFeatureSlots {
     description(props?: {}): any;
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageFeatureProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageFeatureProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageFeatureProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageFeatureProps> & Readonly<{}>, {
     orientation: PageFeature["variants"]["orientation"];
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageFeatureSlots>;
 export default _default;

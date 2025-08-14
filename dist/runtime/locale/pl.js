@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Por\xF3wnanie plan\xF3w cenowych"
     },
     prose: {
+      codeCollapse: {
+        name: "kod",
+        openText: "Rozwi\u0144",
+        closeText: "Zwi\u0144"
+      },
+      collapsible: {
+        name: "w\u0142a\u015Bciwo\u015Bci",
+        openText: "Poka\u017C",
+        closeText: "Ukryj"
+      },
       pre: {
         copy: "Kopiuj kod do schowka"
       }

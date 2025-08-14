@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Porovnanie cien"
     },
     prose: {
+      codeCollapse: {
+        name: "k\xF3d",
+        openText: "Rozbali\u0165",
+        closeText: "Zbali\u0165"
+      },
+      collapsible: {
+        name: "vlastnosti",
+        openText: "Zobrazi\u0165",
+        closeText: "Skry\u0165"
+      },
       pre: {
         copy: "Kop\xEDrova\u0165 k\xF3d do schr\xE1nky"
       }

@@ -7,7 +7,7 @@ import { computed, watch, onMounted, ref, onBeforeUpdate } from "vue";
 import { TabsRoot, TabsList, TabsIndicator, TabsTrigger, TabsContent } from "reka-ui";
 import { useState, useAppConfig } from "#imports";
 import { tv } from "../../utils/tv";
-import CodeIcon from "./CodeIcon.vue";
+import UCodeIcon from "./CodeIcon.vue";
 const props = defineProps({
   defaultValue: { type: String, required: false, default: "0" },
   sync: { type: String, required: false },
@@ -52,12 +52,12 @@ onBeforeUpdate(() => rerenderCount.value++);
 </script>
 
 <template>
-  <TabsRoot v-model="model" :default-value="defaultValue" :unmount-on-hide="false" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <TabsRoot v-model="model" :default-value="defaultValue" :unmount-on-hide="false" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <TabsList :class="ui.list({ class: props.ui?.list })">
       <TabsIndicator :class="ui.indicator({ class: props.ui?.indicator })" />
 
       <TabsTrigger v-for="(item, index) of items" :key="index" :value="String(index)" :class="ui.trigger({ class: props.ui?.trigger })">
-        <CodeIcon :icon="item.icon" :filename="item.label" :class="ui.triggerIcon({ class: props.ui?.triggerIcon })" />
+        <UCodeIcon :icon="item.icon" :filename="item.label" :class="ui.triggerIcon({ class: props.ui?.triggerIcon })" />
 
         <span :class="ui.triggerLabel({ class: props.ui?.triggerLabel })">{{ item.label }}</span>
       </TabsTrigger>

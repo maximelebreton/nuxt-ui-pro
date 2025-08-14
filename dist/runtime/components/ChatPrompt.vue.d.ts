@@ -25,8 +25,8 @@ export interface ChatPromptProps extends /** @vue-ignore */ Pick<TextareaProps, 
     ui?: ChatPrompt['slots'] & TextareaProps['ui'];
 }
 export interface ChatPromptEmits {
-    (e: 'submit', event: Event): void;
-    (e: 'close', event: Event): void;
+    submit: [event: Event];
+    close: [event: Event];
 }
 export interface ChatPromptSlots extends TextareaSlots {
     header(props?: {}): any;
@@ -35,12 +35,11 @@ export interface ChatPromptSlots extends TextareaSlots {
 declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatPromptProps & {
     modelValue?: string;
 }, {
-    textareaRef: any;
+    textareaRef: HTMLTextAreaElement | null | undefined;
 }, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
-    "update:modelValue": (value: string) => any;
-} & {
     close: (event: Event) => any;
     submit: (event: Event) => any;
+    "update:modelValue": (value: string) => any;
 }, string, import("vue").PublicProps, Readonly<ChatPromptProps & {
     modelValue?: string;
 }> & Readonly<{
@@ -50,8 +49,8 @@ declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatPrompt
 }>, {
     as: any;
     autofocus: boolean;
-    autoresize: boolean;
     rows: number;
+    autoresize: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ChatPromptSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {

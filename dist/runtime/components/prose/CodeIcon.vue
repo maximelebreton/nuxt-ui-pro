@@ -5,6 +5,7 @@ import theme from "#build/ui-pro/prose/code-icon";
 <script setup>
 import { computed } from "vue";
 import { defu } from "defu";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useAppConfig } from "#imports";
 const props = defineProps({
   icon: { type: String, required: false },

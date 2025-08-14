@@ -8,6 +8,8 @@ export interface FooterColumnLink extends Omit<LinkProps, 'custom'> {
      * @IconifyIcon
      */
     icon?: string;
+    class?: any;
+    ui?: Pick<FooterColumns['slots'], 'item' | 'link' | 'linkLabel' | 'linkLabelExternalIcon' | 'linkLeadingIcon'>;
 }
 export interface FooterColumn<T extends FooterColumnLink = FooterColumnLink> {
     label: string;
@@ -31,6 +33,9 @@ export interface FooterColumnsSlots<T extends FooterColumnLink = FooterColumnLin
     'left'(props?: {}): any;
     'default'(props?: {}): any;
     'right'(props?: {}): any;
+    'column-label'?: (props: {
+        column: FooterColumn<T>;
+    }) => any;
     'link': SlotProps<T>;
     'link-leading': SlotProps<T>;
     'link-label': SlotProps<T>;
@@ -47,5 +52,5 @@ declare const _default: <T extends FooterColumnLink>(__VLS_props: NonNullable<Aw
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

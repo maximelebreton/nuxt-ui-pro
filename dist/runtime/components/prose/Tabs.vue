@@ -4,6 +4,7 @@ import theme from "#build/ui-pro/prose/tabs";
 
 <script setup>
 import { computed, watch, onMounted, ref, onBeforeUpdate } from "vue";
+import UTabs from "@nuxt/ui/components/Tabs.vue";
 import { useState, useAppConfig } from "#imports";
 import { transformUI } from "../../utils";
 import { tv } from "../../utils/tv";

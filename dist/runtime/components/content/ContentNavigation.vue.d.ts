@@ -24,8 +24,9 @@ export interface ContentNavigationLink extends ContentNavigationItem {
     defaultOpen?: boolean;
     active?: boolean;
     class?: any;
+    ui?: Pick<ContentNavigation['slots'], 'link' | 'linkLeadingIcon' | 'linkTitle' | 'linkTrailing' | 'linkTrailingIcon' | 'linkTrailingBadge' | 'linkTrailingBadgeSize' | 'linkTrailingIcon' | 'linkTitleExternalIcon' | 'trigger' | 'content' | 'item' | 'itemWithChildren'>;
 }
-export interface ContentNavigationProps<T extends ContentNavigationLink = ContentNavigationLink> extends Pick<AccordionRootProps, 'disabled' | 'type'> {
+export interface ContentNavigationProps<T extends ContentNavigationLink = ContentNavigationLink> extends Pick<AccordionRootProps, 'disabled' | 'type' | 'unmountOnHide'> {
     /**
      * The element or component this component should render as.
      * @defaultValue 'nav'
@@ -96,5 +97,5 @@ declare const _default: <T extends ContentNavigationLink>(__VLS_props: NonNullab
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

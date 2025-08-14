@@ -5,6 +5,8 @@ import theme from "#build/ui-pro/page-cta";
 <script setup>
 import { computed } from "vue";
 import { Primitive } from "reka-ui";
+import UButton from "@nuxt/ui/components/Button.vue";
+import UContainer from "@nuxt/ui/components/Container.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../utils/tv";
 const props = defineProps({
@@ -29,24 +31,38 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.pageCTA ||
 </script>
 
 <template>
-  <Primitive :as="as" :data-orientation="orientation" :class="ui.root({ class: [props.class, props.ui?.root] })">
-    <UContainer :class="ui.container({ class: props.ui?.container })">
-      <div :class="ui.wrapper({ class: props.ui?.wrapper })">
-        <h2 v-if="title || !!slots.title" :class="ui.title({ class: props.ui?.title })">
-          <slot name="title">
-            {{ title }}
-          </slot>
-        </h2>
+  <Primitive :as="as" :data-orientation="orientation" :class="ui.root({ class: [props.ui?.root, props.class] })">
+    <slot name="top" />
 
-        <div v-if="description || !!slots.description" :class="ui.description({ class: props.ui?.description })">
-          <slot name="description">
-            {{ description }}
+    <UContainer :class="ui.container({ class: props.ui?.container })">
+      <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description) || !!slots.body || !!slots.footer || (links?.length || !!slots.links)" :class="ui.wrapper({ class: props.ui?.wrapper })">
+        <div v-if="!!slots.header || (title || !!slots.title) || (description || !!slots.description)" :class="ui.header({ class: props.ui?.header })">
+          <slot name="header">
+            <h2 v-if="title || !!slots.title" :class="ui.title({ class: props.ui?.title })">
+              <slot name="title">
+                {{ title }}
+              </slot>
+            </h2>
+
+            <div v-if="description || !!slots.description" :class="ui.description({ class: props.ui?.description })">
+              <slot name="description">
+                {{ description }}
+              </slot>
+            </div>
           </slot>
         </div>
 
-        <div v-if="links?.length || !!slots.links" :class="ui.links({ class: props.ui?.links })">
-          <slot name="links">
-            <UButton v-for="(link, index) in links" :key="index" size="lg" v-bind="link" />
+        <div v-if="!!slots.body" :class="ui.body({ class: props.ui?.body })">
+          <slot name="body" />
+        </div>
+
+        <div v-if="!!slots.footer || (links?.length || !!slots.links)" :class="ui.footer({ class: props.ui?.footer })">
+          <slot name="footer">
+            <div v-if="links?.length || !!slots.links" :class="ui.links({ class: props.ui?.links })">
+              <slot name="links">
+                <UButton v-for="(link, index) in links" :key="index" size="lg" v-bind="link" />
+              </slot>
+            </div>
           </slot>
         </div>
       </div>
@@ -54,5 +70,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.pageCTA ||
       <slot v-if="!!slots.default" />
       <div v-else-if="orientation === 'horizontal'" class="hidden lg:block" />
     </UContainer>
+
+    <slot name="bottom" />
   </Primitive>
 </template>

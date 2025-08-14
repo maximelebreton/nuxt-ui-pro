@@ -5,6 +5,7 @@ import theme from "#build/ui-pro/page-header";
 <script setup>
 import { computed } from "vue";
 import { Primitive } from "reka-ui";
+import UButton from "@nuxt/ui/components/Button.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../utils/tv";
 const props = defineProps({
@@ -24,7 +25,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.pageHeader
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div v-if="headline || !!slots.headline" :class="ui.headline({ class: props.ui?.headline })">
       <slot name="headline">
         {{ headline }}

@@ -1,3 +1,3 @@
 export default {
-  "base": "leading-7 pb-3.5 text-muted"
+  "base": "pb-4 text-muted *:first:mt-0 *:last:mb-0 *:my-1.5"
 }

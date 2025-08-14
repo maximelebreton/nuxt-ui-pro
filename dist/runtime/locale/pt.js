@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Compara\xE7\xE3o de planos de pre\xE7os"
     },
     prose: {
+      codeCollapse: {
+        name: "c\xF3digo",
+        openText: "Expandir",
+        closeText: "Recolher"
+      },
+      collapsible: {
+        name: "propriedades",
+        openText: "Mostrar",
+        closeText: "Ocultar"
+      },
       pre: {
         copy: "Copiar c\xF3digo para a \xE1rea de transfer\xEAncia"
       }

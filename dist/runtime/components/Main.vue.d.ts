@@ -9,7 +9,7 @@ export interface MainProps {
 export interface MainSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<MainProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<MainProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<MainProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<MainProps> & Readonly<{}>, {
     as: any;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, MainSlots>;
 export default _default;

@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Comparaci\xF3 de plans de preu"
     },
     prose: {
+      codeCollapse: {
+        name: "codi",
+        openText: "Desplega",
+        closeText: "Replega"
+      },
+      collapsible: {
+        name: "propietats",
+        openText: "Mostra",
+        closeText: "Amaga"
+      },
       pre: {
         copy: "Copiar codi al portapapers"
       }

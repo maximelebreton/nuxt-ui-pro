@@ -13,7 +13,7 @@ export interface ProseStepsProps {
 export interface ProseStepsSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseStepsProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseStepsProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseStepsSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseStepsProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseStepsProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseStepsSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

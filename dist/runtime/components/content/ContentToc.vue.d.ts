@@ -6,6 +6,7 @@ import theme from '#build/ui-pro/content/content-toc';
 type ContentToc = ComponentConfig<typeof theme, AppConfig, 'contentToc', 'uiPro'>;
 export type ContentTocLink = TocLink & {
     class?: any;
+    ui?: Pick<ContentToc['slots'], 'item' | 'itemWithChildren' | 'link' | 'linkText'>;
 };
 export interface ContentTocProps<T extends ContentTocLink = ContentTocLink> extends Pick<CollapsibleRootProps, 'defaultOpen' | 'open'> {
     /**
@@ -82,5 +83,5 @@ declare const _default: <T extends ContentTocLink>(__VLS_props: NonNullable<Awai
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

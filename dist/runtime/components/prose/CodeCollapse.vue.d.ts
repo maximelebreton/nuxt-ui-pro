@@ -10,17 +10,17 @@ export interface ProseCodeCollapseProps {
     icon?: string;
     /**
      * The name displayed in the trigger label.
-     * @defaultValue 'code'
+     * @defaultValue t('prose.codeCollapse.name')
      */
     name?: string;
     /**
      * The text displayed when the code is collapsed.
-     * @defaultValue 'Expand'
+     * @defaultValue t('prose.codeCollapse.openText')
      */
     openText?: string;
     /**
      * The text displayed when the code is expanded.
-     * @defaultValue 'Collapse'
+     * @defaultValue t('prose.codeCollapse.closeText')
      */
     closeText?: string;
     class?: any;
@@ -31,17 +31,13 @@ export interface ProseCodeCollapseSlots {
 }
 declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCodeCollapseProps & {
     open?: boolean;
-}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+}, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:open": (value: boolean) => any;
 }, string, import("vue").PublicProps, Readonly<ProseCodeCollapseProps & {
     open?: boolean;
 }> & Readonly<{
     "onUpdate:open"?: ((value: boolean) => any) | undefined;
-}>, {
-    name: string;
-    openText: string;
-    closeText: string;
-}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCodeCollapseSlots>;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCodeCollapseSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

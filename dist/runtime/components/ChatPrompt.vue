@@ -6,6 +6,7 @@ import theme from "#build/ui-pro/chat-prompt";
 import { computed, useTemplateRef } from "vue";
 import { Primitive, useForwardProps } from "reka-ui";
 import { reactivePick } from "@vueuse/core";
+import UTextarea from "@nuxt/ui/components/Textarea.vue";
 import { omit } from "@nuxt/ui/utils";
 import { useAppConfig } from "#imports";
 import { useLocalePro } from "../composables/useLocalePro";
@@ -50,7 +51,7 @@ defineExpose({
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })" @submit.prevent="submit">
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })" @submit.prevent="submit">
     <div v-if="!!slots.header" :class="ui.header({ class: props.ui?.header })">
       <slot name="header" />
     </div>

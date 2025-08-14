@@ -20,7 +20,7 @@ export interface BlogPostsProps {
 export interface BlogPostsSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<BlogPostsProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<BlogPostsProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<BlogPostsProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<BlogPostsProps> & Readonly<{}>, {
     orientation: BlogPosts["variants"]["orientation"];
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, BlogPostsSlots>;
 export default _default;

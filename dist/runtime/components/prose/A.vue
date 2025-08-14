@@ -4,6 +4,7 @@ import theme from "#build/ui-pro/prose/a";
 
 <script setup>
 import { computed } from "vue";
+import ULink from "@nuxt/ui/components/Link.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../../utils/tv";
 const appConfig = useAppConfig();

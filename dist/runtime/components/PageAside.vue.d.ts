@@ -16,7 +16,7 @@ export interface PageAsideSlots {
     default(props?: {}): any;
     bottom(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageAsideProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageAsideProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageAsideProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageAsideProps> & Readonly<{}>, {
     as: any;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageAsideSlots>;
 export default _default;

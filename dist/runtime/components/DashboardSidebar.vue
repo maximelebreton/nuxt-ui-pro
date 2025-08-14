@@ -11,8 +11,12 @@ import UModal from "@nuxt/ui/components/Modal.vue";
 import UDrawer from "@nuxt/ui/components/Drawer.vue";
 import { useAppConfig, useRuntimeHook, useRoute } from "#imports";
 import { useResizable } from "../composables/useResizable";
+import { useLocalePro } from "../composables/useLocalePro";
 import { useDashboard } from "../utils/dashboard";
 import { tv } from "../utils/tv";
+import UDashboardResizeHandle from "./DashboardResizeHandle.vue";
+import UDashboardSidebarToggle from "./DashboardSidebarToggle.vue";
+defineOptions({ inheritAttrs: false });
 const props = defineProps({
   mode: { type: null, required: false, default: "slideover" },
   menu: { type: null, required: false },
@@ -33,6 +37,7 @@ const slots = defineSlots();
 const open = defineModel("open", { type: Boolean, ...{ default: false } });
 const collapsed = defineModel("collapsed", { type: Boolean, ...{ default: false } });
 const route = useRoute();
+const { t } = useLocalePro();
 const appConfig = useAppConfig();
 const dashboardContext = useDashboard({
   storageKey: "dashboard",
@@ -41,7 +46,7 @@ const dashboardContext = useDashboard({
   sidebarCollapsed: ref(false)
 });
 const id = `${dashboardContext.storageKey}-sidebar-${props.id || useId()}`;
-const { el, size, collapse, isCollapsed, isDragging, onMouseDown, onTouchStart } = useResizable(id, toRef(() => ({ ...dashboardContext, ...props })), { collapsed });
+const { el, size, collapse, isCollapsed, isDragging, onMouseDown, onTouchStart, onDoubleClick } = useResizable(id, toRef(() => ({ ...dashboardContext, ...props })), { collapsed });
 const [DefineToggleTemplate, ReuseToggleTemplate] = createReusableTemplate();
 const [DefineResizeHandleTemplate, ReuseResizeHandleTemplate] = createReusableTemplate();
 useRuntimeHook("dashboard:sidebar:toggle", () => {
@@ -86,13 +91,14 @@ function toggleOpen() {
   </DefineToggleTemplate>
 
   <DefineResizeHandleTemplate>
-    <slot name="resize-handle" :on-mouse-down="onMouseDown" :on-touch-start="onTouchStart">
+    <slot name="resize-handle" :on-mouse-down="onMouseDown" :on-touch-start="onTouchStart" :on-double-click="onDoubleClick">
       <UDashboardResizeHandle
         v-if="resizable"
         :aria-controls="id"
         :class="ui.handle({ class: props.ui?.handle })"
         @mousedown="onMouseDown"
         @touchstart="onTouchStart"
+        @dblclick="onDoubleClick"
       />
     </slot>
   </DefineResizeHandleTemplate>
@@ -102,9 +108,10 @@ function toggleOpen() {
   <div
     :id="id"
     ref="el"
+    v-bind="$attrs"
     :data-collapsed="isCollapsed"
     :data-dragging="isDragging"
-    :class="ui.root({ class: [props.class, props.ui?.root] })"
+    :class="ui.root({ class: [props.ui?.root, props.class] })"
     :style="{ '--width': `${size || 0}${dashboardContext.unit}` }"
   >
     <div v-if="!!slots.header" :class="ui.header({ class: props.ui?.header })">
@@ -124,6 +131,8 @@ function toggleOpen() {
 
   <Menu
     v-model:open="open"
+    :title="t('dashboardSidebar.title')"
+    :description="t('dashboardSidebar.description')"
     v-bind="menuProps"
     :ui="{
   overlay: ui.overlay({ class: props.ui?.overlay }),

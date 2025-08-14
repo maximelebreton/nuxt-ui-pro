@@ -1,4 +1,4 @@
-import { type Ref } from 'vue';
+import type { Ref } from 'vue';
 export type UseResizableProps = {
     /**
      * The id of the panel.
@@ -68,6 +68,7 @@ export type UseResizableReturn = {
     isCollapsed: Ref<boolean>;
     onMouseDown: (e: MouseEvent) => void;
     onTouchStart: (e: TouchEvent) => void;
+    onDoubleClick: (e: MouseEvent) => void;
     collapse: (value?: boolean) => void;
 };
 export declare const useResizable: (key: string, options?: Ref<UseResizableProps> | UseResizableProps, { collapsed }?: {

@@ -6,10 +6,12 @@ import theme from "#build/ui-pro/content/content-toc";
 import { computed } from "vue";
 import { CollapsibleRoot, CollapsibleTrigger, CollapsibleContent, useForwardPropsEmits } from "reka-ui";
 import { reactivePick, createReusableTemplate } from "@vueuse/core";
-import { useRouter, useNuxtApp, useAppConfig } from "#imports";
+import UIcon from "@nuxt/ui/components/Icon.vue";
+import { useRouter, useAppConfig, useNuxtApp } from "#imports";
 import { useScrollspy } from "../../composables/useScrollspy";
 import { useLocalePro } from "../../composables/useLocalePro";
 import { tv } from "../../utils/tv";
+defineOptions({ inheritAttrs: false });
 const props = defineProps({
   as: { type: null, required: false, default: "nav" },
   trailingIcon: { type: String, required: false },
@@ -47,15 +49,6 @@ function scrollToHeading(id) {
   router.push(`#${encodedId}`);
   emits("move", id);
 }
-if (!import.meta.test) {
-  const nuxtApp = useNuxtApp();
-  nuxtApp.hooks.hookOnce("page:finish", () => {
-    updateHeadings([
-      ...document.querySelectorAll("h2"),
-      ...document.querySelectorAll("h3")
-    ]);
-  });
-}
 function flattenLinks(links) {
   return links.flatMap((link) => [link, ...link.children ? flattenLinks(link.children) : []]);
 }
@@ -72,16 +65,25 @@ const indicatorStyle = computed(() => {
     "--indicator-position": activeIndex >= 0 ? `${activeIndex * (linkHeight + gapSize)}px` : "0px"
   };
 });
+const nuxtApp = useNuxtApp();
+nuxtApp.hooks.hook("page:loading:end", () => {
+  const headings = Array.from(document.querySelectorAll("h2, h3"));
+  updateHeadings(headings);
+});
+nuxtApp.hooks.hook("page:transition:finish", () => {
+  const headings = Array.from(document.querySelectorAll("h2, h3"));
+  updateHeadings(headings);
+});
 </script>
 
 <template>
   <!-- eslint-disable-next-line vue/no-template-shadow -->
   <DefineListTemplate v-slot="{ links, level }">
     <ul :class="level > 0 ? ui.listWithChildren({ class: props.ui?.listWithChildren }) : ui.list({ class: props.ui?.list })">
-      <li v-for="(link, index) in links" :key="index" :class="link.children && link.children.length > 0 ? ui.itemWithChildren({ class: props.ui?.itemWithChildren }) : ui.item({ class: props.ui?.item })">
-        <a :href="`#${link.id}`" :class="ui.link({ class: [props.ui?.link, link.class], active: activeHeadings.includes(link.id) })" @click.prevent="scrollToHeading(link.id)">
+      <li v-for="(link, index) in links" :key="index" :class="link.children && link.children.length > 0 ? ui.itemWithChildren({ class: [props.ui?.itemWithChildren, link.ui?.itemWithChildren] }) : ui.item({ class: [props.ui?.item, link.ui?.item] })">
+        <a :href="`#${link.id}`" :class="ui.link({ class: [props.ui?.link, link.ui?.link, link.class], active: activeHeadings.includes(link.id) })" @click.prevent="scrollToHeading(link.id)">
           <slot name="link" :link="link">
-            <span :class="ui.linkText({ class: props.ui?.linkText })">
+            <span :class="ui.linkText({ class: [props.ui?.linkText, link.ui?.linkText] })">
               {{ link.text }}
             </span>
           </slot>
@@ -96,7 +98,7 @@ const indicatorStyle = computed(() => {
     <slot name="leading" :open="open" />
 
     <span :class="ui.title({ class: props.ui?.title })">
-      <slot :open="open">{{ title || t('contentToc.title') }}</slot>
+      <slot :open="open">{{ title || t("contentToc.title") }}</slot>
     </span>
 
     <span :class="ui.trailing({ class: props.ui?.trailing })">
@@ -106,7 +108,7 @@ const indicatorStyle = computed(() => {
     </span>
   </DefineTriggerTemplate>
 
-  <CollapsibleRoot v-slot="{ open }" v-bind="rootProps" :default-open="defaultOpen" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <CollapsibleRoot v-slot="{ open }" v-bind="{ ...rootProps, ...$attrs }" :default-open="defaultOpen" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div :class="ui.container({ class: props.ui?.container })">
       <div v-if="!!slots.top" :class="ui.top({ class: props.ui?.top })">
         <slot name="top" :links="links" />
@@ -138,7 +140,7 @@ const indicatorStyle = computed(() => {
         </div>
       </template>
 
-      <div v-if="!!slots.bottom" :class="ui.bottom({ class: props.ui?.bottom })">
+      <div v-if="!!slots.bottom" :class="ui.bottom({ class: props.ui?.bottom, body: !!slots.top || !!links?.length })">
         <slot name="bottom" :links="links" />
       </div>
     </div>

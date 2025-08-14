@@ -27,6 +27,7 @@ You can get started with our [minimal starter](https://github.com/nuxt-ui-pro/st
 - [SaaS](https://github.com/nuxt-ui-pro/saas)
 - [Dashboard](https://github.com/nuxt-ui-pro/dashboard)
 - [Chat](https://github.com/nuxt-ui-pro/chat)
+- [Portfolio](https://github.com/nuxt-ui-pro/portfolio)
 
 ## Installation
 

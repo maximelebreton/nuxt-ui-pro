@@ -4,7 +4,7 @@ export interface LocaleSelectProps extends /** @vue-ignore */ Pick<SelectMenuPro
 }
 declare const _default: import("vue").DefineComponent<LocaleSelectProps & {
     modelValue?: string;
-}, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+}, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
     "update:modelValue": (value: string | undefined) => any;
 }, string, import("vue").PublicProps, Readonly<LocaleSelectProps & {
     modelValue?: string;

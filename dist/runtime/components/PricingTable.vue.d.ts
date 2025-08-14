@@ -12,17 +12,31 @@ type DynamicSlots<T extends {
         }>;
     }) => any;
 };
+type FeatureDynamicSlots<T extends PricingTableSectionFeature, S extends string | undefined = undefined> = {
+    [K in (T['id'] extends string ? T['id'] : string) as K extends string ? S extends string ? (`feature-${K}` | `feature-${K}-${S}`) : `feature-${K}` : never]?: (props: {
+        feature: T;
+        tier: PricingTableTier;
+        section: PricingTableSection;
+    }) => any;
+};
+type SectionDynamicSlots<T extends PricingTableSection, S extends string | undefined = undefined> = {
+    [K in (T['id'] extends string ? T['id'] : string) as K extends string ? S extends string ? (`section-${K}` | `section-${K}-${S}`) : `section-${K}` : never]?: (props: {
+        section: T;
+    }) => any;
+};
 export type PricingTableTier = Pick<PricingPlanProps, 'title' | 'description' | 'badge' | 'billingCycle' | 'billingPeriod' | 'price' | 'discount' | 'button' | 'highlight'> & {
     id: string;
     [key: string]: any;
 };
 export type PricingTableSectionFeature<T extends PricingTableTier = PricingTableTier> = {
+    id?: string;
     title: string;
     tiers?: {
         [K in Extract<T['id'], string>]: boolean | number | string;
     } & Record<string, boolean | number | string>;
 };
 export interface PricingTableSection<T extends PricingTableTier = PricingTableTier> {
+    id?: string;
     title: string;
     features: PricingTableSectionFeature<T>[];
 }
@@ -63,7 +77,19 @@ export type PricingTableSlots<T extends PricingTableTier = PricingTableTier> = {
     'tier-billing': SlotProps<T>;
     'tier-discount': SlotProps<T>;
     'tier-price': SlotProps<T>;
-} & DynamicSlots<T, 'title' | 'description' | 'badge' | 'button' | 'billing' | 'discount' | 'price'>;
+    'section-title': (props: {
+        section: PricingTableSection<T>;
+    }) => any;
+    'feature-title': (props: {
+        feature: PricingTableSectionFeature<T>;
+        section: PricingTableSection<T>;
+    }) => any;
+    'feature-value': (props: {
+        feature: PricingTableSectionFeature<T>;
+        tier: T;
+        section: PricingTableSection<T>;
+    }) => any;
+} & DynamicSlots<T, 'title' | 'description' | 'badge' | 'button' | 'billing' | 'discount' | 'price'> & FeatureDynamicSlots<PricingTableSectionFeature<T>, 'title' | 'value'> & SectionDynamicSlots<PricingTableSection<T>, 'title'>;
 declare const _default: <T extends PricingTableTier>(__VLS_props: NonNullable<Awaited<typeof __VLS_setup>>["props"], __VLS_ctx?: __VLS_PrettifyLocal<Pick<NonNullable<Awaited<typeof __VLS_setup>>, "attrs" | "emit" | "slots">>, __VLS_expose?: NonNullable<Awaited<typeof __VLS_setup>>["expose"], __VLS_setup?: Promise<{
     props: __VLS_PrettifyLocal<Pick<Partial<{}> & Omit<{} & import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, never>, never> & PricingTableProps<T> & Partial<{}>> & import("vue").PublicProps;
     expose(exposed: import("vue").ShallowUnwrapRef<{}>): void;
@@ -75,5 +101,5 @@ declare const _default: <T extends PricingTableTier>(__VLS_props: NonNullable<Aw
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "\u4EF7\u683C\u8BA1\u5212\u6BD4\u8F83"
     },
     prose: {
+      codeCollapse: {
+        name: "\u4EE3\u7801",
+        openText: "\u5C55\u5F00",
+        closeText: "\u6536\u8D77"
+      },
+      collapsible: {
+        name: "\u5C5E\u6027",
+        openText: "\u663E\u793A",
+        closeText: "\u9690\u85CF"
+      },
       pre: {
         copy: "\u590D\u5236\u4EE3\u7801\u5230\u526A\u8D34\u677F"
       }

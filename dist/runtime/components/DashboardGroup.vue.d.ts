@@ -10,7 +10,7 @@ export interface DashboardGroupProps extends Pick<UseResizableProps, 'storage' |
 export interface DashboardGroupSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardGroupProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardGroupProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardGroupProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardGroupProps> & Readonly<{}>, {
     storage: "cookie" | "local";
     storageKey: string;
     persistent: boolean;

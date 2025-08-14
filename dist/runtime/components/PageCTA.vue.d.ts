@@ -33,12 +33,17 @@ export interface PageCTAProps {
     ui?: PageCTA['slots'];
 }
 export interface PageCTASlots {
-    default(props?: {}): any;
+    top(props?: {}): any;
+    header(props?: {}): any;
     title(props?: {}): any;
     description(props?: {}): any;
+    body(props?: {}): any;
+    footer(props?: {}): any;
     links(props?: {}): any;
+    default(props?: {}): any;
+    bottom(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageCTAProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageCTAProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageCTAProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageCTAProps> & Readonly<{}>, {
     reverse: boolean;
     orientation: PageCTA["variants"]["orientation"];
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageCTASlots>;

@@ -1,8 +1,3 @@
-const orientation = [
-  "horizontal",
-  "vertical"
-] as const
-
 const size = [
   "3xs",
   "2xs",

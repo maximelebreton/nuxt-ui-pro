@@ -6,8 +6,12 @@ import theme from "#build/ui-pro/page-logos";
 import { computed } from "vue";
 import { Primitive } from "reka-ui";
 import { createReusableTemplate } from "@vueuse/core";
+import UAvatar from "@nuxt/ui/components/Avatar.vue";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../utils/tv";
+import UPageMarquee from "./PageMarquee.vue";
+defineOptions({ inheritAttrs: false });
 const [DefineCreateItemTemplate, ReuseCreateItemTemplate] = createReusableTemplate();
 const props = defineProps({
   as: { type: null, required: false },
@@ -42,7 +46,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.pageLogos 
     </template>
   </DefineCreateItemTemplate>
 
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" v-bind="$attrs" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <h2 v-if="title" :class="ui.title({ class: props.ui?.title })">
       {{ title }}
     </h2>

@@ -4,6 +4,7 @@ import theme from "#build/ui-pro/prose/badge";
 
 <script setup>
 import { computed } from "vue";
+import UBadge from "@nuxt/ui/components/Badge.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../../utils/tv";
 const props = defineProps({

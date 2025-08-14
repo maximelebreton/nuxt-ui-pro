@@ -11,7 +11,7 @@ export interface DashboardSidebarCollapseProps extends /** @vue-ignore */ Pick<B
     variant?: ButtonProps['variant'];
     class?: any;
 }
-declare const _default: import("vue").DefineComponent<DashboardSidebarCollapseProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardSidebarCollapseProps> & Readonly<{}>, {
+declare const _default: import("vue").DefineComponent<DashboardSidebarCollapseProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardSidebarCollapseProps> & Readonly<{}>, {
     color: "error" | "info" | "primary" | "secondary" | "success" | "warning" | "neutral";
     variant: "link" | "solid" | "outline" | "soft" | "subtle" | "ghost";
     side: "left" | "right";

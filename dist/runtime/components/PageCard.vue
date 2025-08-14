@@ -6,6 +6,8 @@ import theme from "#build/ui-pro/page-card";
 import { computed, ref, watch } from "vue";
 import { Primitive } from "reka-ui";
 import { useMouseInElement, pausableFilter } from "@vueuse/core";
+import ULink from "@nuxt/ui/components/Link.vue";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useAppConfig } from "#imports";
 import { getSlotChildrenText } from "../utils";
 import { tv } from "../utils/tv";
@@ -35,7 +37,7 @@ const appConfig = useAppConfig();
 const { elementX, elementY } = useMouseInElement(cardRef, {
   eventFilter: motionControl.eventFilter
 });
-const spotlight = computed(() => props.spotlight && (elementX.value > 0 || elementY.value > 0));
+const spotlight = computed(() => props.spotlight && (elementX.value !== 0 || elementY.value !== 0));
 watch(() => props.spotlight, (value) => {
   if (value) {
     motionControl.resume();
@@ -65,14 +67,14 @@ const ariaLabel = computed(() => {
     ref="cardRef"
     :as="as"
     :data-orientation="orientation"
-    :class="ui.root({ class: [props.class, props.ui?.root] })"
+    :class="ui.root({ class: [props.ui?.root, props.class] })"
     :style="spotlight && { '--spotlight-x': `${elementX}px`, '--spotlight-y': `${elementY}px` }"
     @click="onClick"
   >
     <div v-if="props.spotlight" :class="ui.spotlight({ class: props.ui?.spotlight })" />
 
     <div :class="ui.container({ class: props.ui?.container })">
-      <div v-if="!!slots.header || !!slots.body || (icon || !!slots.leading) || (title || !!slots.title) || (description || !!slots.description) || !!slots.footer" :class="ui.wrapper({ class: props.ui?.wrapper })">
+      <div v-if="!!slots.header || (icon || !!slots.leading) || !!slots.body || (title || !!slots.title) || (description || !!slots.description) || !!slots.footer" :class="ui.wrapper({ class: props.ui?.wrapper })">
         <div v-if="!!slots.header" :class="ui.header({ class: props.ui?.header })">
           <slot name="header" />
         </div>

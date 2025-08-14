@@ -7,6 +7,7 @@ import { computed } from "vue";
 import { Primitive } from "reka-ui";
 import { useAppConfig } from "#imports";
 import { tv } from "../utils/tv";
+import UPricingPlan from "./PricingPlan.vue";
 const props = defineProps({
   as: { type: null, required: false },
   plans: { type: Array, required: false },

@@ -1,8 +1,3 @@
-const orientation = [
-  "horizontal",
-  "vertical"
-] as const
-
 export default {
   "base": "flex flex-col gap-8 lg:gap-y-16",
   "variants": {

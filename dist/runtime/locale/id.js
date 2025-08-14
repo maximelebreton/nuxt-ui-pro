@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Perbandingan Harga"
     },
     prose: {
+      codeCollapse: {
+        name: "kode",
+        openText: "Perluas",
+        closeText: "Ciutkan"
+      },
+      collapsible: {
+        name: "properti",
+        openText: "Tampilkan",
+        closeText: "Sembunyikan"
+      },
       pre: {
         copy: "Salin kode ke clipboard"
       }

@@ -22,6 +22,8 @@ export type Messages = UIMessages & {
         switchToDark: string;
     };
     contentSearch: {
+        title?: string;
+        description?: string;
         links: string;
         theme: string;
     };
@@ -32,10 +34,16 @@ export type Messages = UIMessages & {
         title: string;
     };
     dashboardSearch: {
+        title?: string;
+        description?: string;
         theme: string;
     };
     dashboardSearchButton: {
         label: string;
+    };
+    dashboardSidebar?: {
+        title?: string;
+        description?: string;
     };
     dashboardSidebarCollapse: {
         expand: string;
@@ -49,6 +57,8 @@ export type Messages = UIMessages & {
         clear: string;
     };
     header: {
+        title?: string;
+        description?: string;
         close: string;
         open: string;
     };
@@ -56,6 +66,16 @@ export type Messages = UIMessages & {
         caption: string;
     };
     prose: {
+        codeCollapse: {
+            name: string;
+            openText: string;
+            closeText: string;
+        };
+        collapsible: {
+            name: string;
+            openText: string;
+            closeText: string;
+        };
         pre: {
             copy: string;
         };

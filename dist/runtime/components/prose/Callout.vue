@@ -4,6 +4,8 @@ import theme from "#build/ui-pro/prose/callout";
 
 <script setup>
 import { computed } from "vue";
+import ULink from "@nuxt/ui/components/Link.vue";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../../utils/tv";
 defineOptions({ inheritAttrs: false });

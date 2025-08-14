@@ -1,8 +1,3 @@
-const orientation = [
-  "horizontal",
-  "vertical"
-] as const
-
 export default {
   "slots": {
     "root": "relative",

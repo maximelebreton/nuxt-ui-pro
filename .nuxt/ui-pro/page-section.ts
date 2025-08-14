@@ -8,13 +8,16 @@ export default {
     "root": "relative isolate",
     "container": "flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16",
     "wrapper": "",
-    "headline": "mb-3",
+    "header": "",
     "leading": "flex items-center mb-6",
     "leadingIcon": "size-10 shrink-0 text-primary",
+    "headline": "mb-3",
     "title": "text-3xl sm:text-4xl lg:text-5xl text-pretty tracking-tight font-bold text-highlighted",
     "description": "text-base sm:text-lg text-muted",
-    "links": "mt-8 flex flex-wrap gap-x-6 gap-y-3",
-    "features": "mt-8 grid"
+    "body": "mt-8",
+    "features": "grid",
+    "footer": "mt-8",
+    "links": "flex flex-wrap gap-x-6 gap-y-3"
   },
   "variants": {
     "orientation": {
@@ -51,7 +54,7 @@ export default {
     "description": {
       "true": ""
     },
-    "features": {
+    "body": {
       "true": ""
     }
   },
@@ -60,21 +63,21 @@ export default {
       "orientation": "vertical" as typeof orientation[number],
       "title": true,
       "class": {
-        "features": "mt-16"
+        "body": "mt-16"
       }
     },
     {
       "orientation": "vertical" as typeof orientation[number],
       "description": true,
       "class": {
-        "features": "mt-16"
+        "body": "mt-16"
       }
     },
     {
       "orientation": "vertical" as typeof orientation[number],
-      "features": true,
+      "body": true,
       "class": {
-        "links": "mt-16"
+        "footer": "mt-16"
       }
     }
   ]

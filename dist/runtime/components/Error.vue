@@ -5,6 +5,7 @@ import theme from "#build/ui-pro/error";
 <script setup>
 import { computed } from "vue";
 import { Primitive } from "reka-ui";
+import UButton from "@nuxt/ui/components/Button.vue";
 import { clearError, useAppConfig } from "#imports";
 import { useLocalePro } from "../composables/useLocalePro";
 import { tv } from "../utils/tv";
@@ -16,7 +17,7 @@ const props = defineProps({
   class: { type: null, required: false },
   ui: { type: null, required: false }
 });
-defineSlots();
+const slots = defineSlots();
 const { t } = useLocalePro();
 const appConfig = useAppConfig();
 const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.error || {} })());
@@ -26,26 +27,34 @@ function handleError() {
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
-    <p :class="ui.statusCode({ class: props.ui?.statusCode })">
-      {{ props.error?.statusCode }}
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
+    <p v-if="!!props.error?.statusCode || !!slots.statusCode" :class="ui.statusCode({ class: props.ui?.statusCode })">
+      <slot name="statusCode">
+        {{ props.error?.statusCode }}
+      </slot>
     </p>
-    <h1 v-if="props.error?.statusMessage" :class="ui.statusMessage({ class: props.ui?.statusMessage })">
-      {{ props.error.statusMessage }}
+    <h1 v-if="!!props.error?.statusMessage || !!slots.statusMessage" :class="ui.statusMessage({ class: props.ui?.statusMessage })">
+      <slot name="statusMessage">
+        {{ props.error?.statusMessage }}
+      </slot>
     </h1>
-    <p v-if="props.error?.message && props.error.message !== props.error.statusMessage" :class="ui.message({ class: props.ui?.message })">
-      {{ props.error?.message }}
+    <p v-if="props.error?.message && props.error.message !== props.error.statusMessage || !!slots.message" :class="ui.message({ class: props.ui?.message })">
+      <slot name="message">
+        {{ props.error?.message }}
+      </slot>
     </p>
-    <div :class="ui.links({ class: props.ui?.links })">
-      <UButton
-        v-if="clear"
-        size="lg"
-        color="primary"
-        variant="solid"
-        :label="t('error.clear')"
-        v-bind="typeof clear === 'object' ? clear : {}"
-        @click="handleError"
-      />
+    <div v-if="!!clear || !!slots.links" :class="ui.links({ class: props.ui?.links })">
+      <slot name="links">
+        <UButton
+          v-if="clear"
+          size="lg"
+          color="primary"
+          variant="solid"
+          :label="t('error.clear')"
+          v-bind="typeof clear === 'object' ? clear : {}"
+          @click="handleError"
+        />
+      </slot>
     </div>
   </Primitive>
 </template>

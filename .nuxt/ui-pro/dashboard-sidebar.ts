@@ -1,13 +1,3 @@
-const side = [
-  "left",
-  "right"
-] as const
-
-const toggleSide = [
-  "left",
-  "right"
-] as const
-
 export default {
   "slots": {
     "root": "relative hidden lg:flex flex-col min-h-svh min-w-16 w-(--width) shrink-0",

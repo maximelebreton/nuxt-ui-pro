@@ -18,7 +18,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.dashboardT
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <slot>
       <div :class="ui.left({ class: [props.ui?.left] })">
         <slot name="left" />

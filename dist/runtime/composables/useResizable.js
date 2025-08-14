@@ -1,6 +1,7 @@
 import { ref, computed, unref, isRef, watch } from "vue";
 import { useStorage } from "@vueuse/core";
 import { useCookie } from "#imports";
+import { useLocalePro } from "./useLocalePro.js";
 export const useResizable = (key, options = {}, { collapsed = ref(false) } = {}) => {
   const el = ref(null);
   const opts = computed(() => ({
@@ -16,6 +17,7 @@ export const useResizable = (key, options = {}, { collapsed = ref(false) } = {})
     unit: "%",
     ...isRef(options) ? options.value : options
   }));
+  const { dir } = useLocalePro();
   const defaultStorageValue = {
     size: opts.value.defaultSize,
     collapsed: unref(collapsed) ?? false
@@ -47,7 +49,13 @@ export const useResizable = (key, options = {}, { collapsed = ref(false) } = {})
       return;
     }
     const parentSize = el.value.parentElement?.offsetWidth || 1;
-    const delta = opts.value.side === "left" ? e.clientX - initialPos : initialPos - e.clientX;
+    const isRtl = dir.value === "rtl";
+    let delta;
+    if (isRtl) {
+      delta = opts.value.side === "left" ? initialPos - e.clientX : e.clientX - initialPos;
+    } else {
+      delta = opts.value.side === "left" ? e.clientX - initialPos : initialPos - e.clientX;
+    }
     const newSize = initialSize + delta;
     let newValue;
     if (opts.value.unit === "rem") {
@@ -95,7 +103,13 @@ export const useResizable = (key, options = {}, { collapsed = ref(false) } = {})
       return;
     }
     const parentSize = el.value.parentElement?.offsetWidth || 1;
-    const delta = opts.value.side === "left" ? e.touches[0].clientX - initialPos : initialPos - e.touches[0].clientX;
+    const isRtl = dir.value === "rtl";
+    let delta;
+    if (isRtl) {
+      delta = opts.value.side === "left" ? initialPos - e.touches[0].clientX : e.touches[0].clientX - initialPos;
+    } else {
+      delta = opts.value.side === "left" ? e.touches[0].clientX - initialPos : initialPos - e.touches[0].clientX;
+    }
     const newSize = initialSize + delta;
     let newValue;
     if (opts.value.unit === "rem") {
@@ -140,6 +154,17 @@ export const useResizable = (key, options = {}, { collapsed = ref(false) } = {})
     document.addEventListener("touchend", handleTouchEnd);
     document.addEventListener("touchcancel", handleTouchEnd);
   };
+  const onDoubleClick = (e) => {
+    if (!el.value || !opts.value.resizable) {
+      return;
+    }
+    e.preventDefault();
+    e.stopPropagation();
+    if (isCollapsed.value) {
+      collapse(false);
+    }
+    size.value = opts.value.defaultSize;
+  };
   const collapse = (value) => {
     if (!opts.value.collapsible) {
       return;
@@ -172,6 +197,7 @@ export const useResizable = (key, options = {}, { collapsed = ref(false) } = {})
     isCollapsed,
     onMouseDown,
     onTouchStart,
+    onDoubleClick,
     collapse
   };
 };

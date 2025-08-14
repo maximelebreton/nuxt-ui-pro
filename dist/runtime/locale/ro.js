@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Comparare pre\u021Buri"
     },
     prose: {
+      codeCollapse: {
+        name: "cod",
+        openText: "Extinde",
+        closeText: "Restr\xE2nge"
+      },
+      collapsible: {
+        name: "propriet\u0103\u021Bi",
+        openText: "Afi\u0219eaz\u0103",
+        closeText: "Ascunde"
+      },
       pre: {
         copy: "Copiaz\u0103 codul \xEEn clipboard"
       }

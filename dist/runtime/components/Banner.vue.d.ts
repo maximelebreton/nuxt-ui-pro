@@ -55,7 +55,14 @@ export interface BannerSlots {
         ui: any;
     }): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<BannerProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, any, string, import("vue").PublicProps, any, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, BannerSlots>;
+export interface BannerEmits {
+    close: [];
+}
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<BannerProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {
+    close: () => any;
+}, string, import("vue").PublicProps, Readonly<BannerProps> & Readonly<{
+    onClose?: (() => any) | undefined;
+}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, BannerSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

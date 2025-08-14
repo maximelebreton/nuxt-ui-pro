@@ -15,7 +15,7 @@ export interface ChatPaletteSlots {
     default(props?: {}): any;
     prompt(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatPaletteProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ChatPaletteProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ChatPaletteSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatPaletteProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ChatPaletteProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ChatPaletteSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "Hinna plaanide v\xF5rdlus"
     },
     prose: {
+      codeCollapse: {
+        name: "kood",
+        openText: "Laienda",
+        closeText: "Ahenda"
+      },
+      collapsible: {
+        name: "omadused",
+        openText: "N\xE4ita",
+        closeText: "Peida"
+      },
       pre: {
         copy: "Kopeeri kood l\xF5ikelauale"
       }

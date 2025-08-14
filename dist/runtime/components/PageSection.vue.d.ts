@@ -43,17 +43,20 @@ export interface PageSectionProps {
     ui?: PageSection['slots'];
 }
 export interface PageSectionSlots {
-    default(props?: {}): any;
     top(props?: {}): any;
-    bottom(props?: {}): any;
-    headline(props?: {}): any;
+    header(props?: {}): any;
     leading(props?: {}): any;
+    headline(props?: {}): any;
     title(props?: {}): any;
     description(props?: {}): any;
-    links(props?: {}): any;
+    body(props?: {}): any;
     features(props?: {}): any;
+    footer(props?: {}): any;
+    links(props?: {}): any;
+    default(props?: {}): any;
+    bottom(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageSectionProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageSectionProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageSectionProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageSectionProps> & Readonly<{}>, {
     orientation: PageSection["variants"]["orientation"];
     as: any;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageSectionSlots>;

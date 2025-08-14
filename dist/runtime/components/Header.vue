@@ -7,6 +7,9 @@ import { computed, watch, toRef } from "vue";
 import { Primitive } from "reka-ui";
 import { defu } from "defu";
 import { createReusableTemplate } from "@vueuse/core";
+import UButton from "@nuxt/ui/components/Button.vue";
+import ULink from "@nuxt/ui/components/Link.vue";
+import UContainer from "@nuxt/ui/components/Container.vue";
 import USlideover from "@nuxt/ui/components/Slideover.vue";
 import UModal from "@nuxt/ui/components/Modal.vue";
 import UDrawer from "@nuxt/ui/components/Drawer.vue";
@@ -14,6 +17,7 @@ import { useAppConfig, useRoute } from "#imports";
 import { useLocalePro } from "../composables/useLocalePro";
 import { getSlotChildrenText } from "../utils";
 import { tv } from "../utils/tv";
+defineOptions({ inheritAttrs: false });
 const props = defineProps({
   as: { type: null, required: false, default: "header" },
   title: { type: String, required: false, default: "Nuxt UI Pro" },
@@ -94,7 +98,7 @@ function toggleOpen() {
     </div>
   </DefineRightTemplate>
 
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" v-bind="$attrs" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <slot name="top" />
 
     <UContainer :class="ui.container({ class: props.ui?.container })">
@@ -112,6 +116,8 @@ function toggleOpen() {
 
   <Menu
     v-model:open="open"
+    :title="t('header.title')"
+    :description="t('header.description')"
     v-bind="menuProps"
     :ui="{
   overlay: ui.overlay({ class: props.ui?.overlay }),

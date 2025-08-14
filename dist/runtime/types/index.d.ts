@@ -2,6 +2,8 @@ export * from '../components/AuthForm.vue';
 export * from '../components/Banner.vue';
 export * from '../components/BlogPost.vue';
 export * from '../components/BlogPosts.vue';
+export * from '../components/ChangelogVersion.vue';
+export * from '../components/ChangelogVersions.vue';
 export * from '../components/ChatMessage.vue';
 export * from '../components/ChatMessages.vue';
 export * from '../components/ChatPalette.vue';

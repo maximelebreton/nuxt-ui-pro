@@ -21,7 +21,7 @@ const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.page || {}
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <Slot v-if="!!slots.left" :class="ui.left({ class: props.ui?.left })">
       <slot name="left" />
     </Slot>

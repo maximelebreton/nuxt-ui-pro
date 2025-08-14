@@ -9,11 +9,16 @@ const authForm = {
     root: "w-full space-y-6",
     header: "flex flex-col text-center",
     leading: "mb-2",
-    leadingIcon: "size-8 shrink-0",
+    leadingIcon: "size-8 shrink-0 inline-block",
     title: "text-xl text-pretty font-semibold text-highlighted",
     description: "mt-1 text-base text-pretty text-muted",
     body: "gap-y-6 flex flex-col",
     providers: "space-y-3",
+    checkbox: "",
+    select: "",
+    password: "w-full",
+    otp: "w-full justify-center",
+    input: "w-full",
     separator: "",
     form: "space-y-5",
     footer: "text-sm text-center text-muted mt-2"
@@ -190,6 +195,57 @@ const blogPosts = {
   }
 };
 
+const changelogVersion = {
+  slots: {
+    root: "relative",
+    container: "flex flex-col mx-auto max-w-2xl",
+    header: "",
+    meta: "flex items-center gap-3 mb-2",
+    date: "text-sm/6 text-toned truncate",
+    badge: "",
+    title: "relative text-xl text-pretty font-semibold text-highlighted",
+    description: "text-base text-pretty text-muted mt-1",
+    imageWrapper: "relative overflow-hidden rounded-lg aspect-[16/9] mt-5 group/changelog-version-image",
+    image: "object-cover object-top w-full h-full",
+    authors: "flex flex-wrap gap-x-4 gap-y-1.5",
+    footer: "border-t border-default pt-5 flex items-center justify-between",
+    indicator: "absolute left-0 top-0 w-32 hidden lg:flex items-center justify-end gap-3 min-w-0",
+    dot: "size-4 rounded-full bg-default ring ring-default flex items-center justify-center my-1",
+    dotInner: "size-2 rounded-full bg-primary"
+  },
+  variants: {
+    body: {
+      false: {
+        footer: "mt-5"
+      }
+    },
+    badge: {
+      false: {
+        meta: "lg:hidden"
+      }
+    },
+    to: {
+      true: {
+        image: "transform transition-transform duration-200 group-hover/changelog-version-image:scale-105"
+      }
+    },
+    hidden: {
+      true: {
+        date: "lg:hidden"
+      }
+    }
+  }
+};
+
+const changelogVersions = {
+  slots: {
+    root: "relative",
+    container: "flex flex-col gap-y-8 sm:gap-y-12 lg:gap-y-16",
+    indicator: "absolute hidden lg:block overflow-hidden inset-y-3 left-32 h-full w-px bg-border -ml-[8.5px]",
+    beam: "absolute left-0 top-0 w-full bg-primary will-change-[height]"
+  }
+};
+
 const chatMessage = (options) => ({
   slots: {
     root: "group/message relative w-full",
@@ -198,7 +254,7 @@ const chatMessage = (options) => ({
     leadingIcon: "shrink-0",
     leadingAvatar: "shrink-0",
     leadingAvatarSize: "",
-    content: "relative text-pretty",
+    content: "relative text-pretty min-w-0",
     actions: ["opacity-0 group-hover/message:opacity-100 absolute bottom-0 flex items-center", options.theme.transitions && "transition-opacity"]
   },
   variants: {
@@ -636,9 +692,12 @@ const pageCta = {
     root: "relative isolate rounded-xl overflow-hidden",
     container: "flex flex-col lg:grid px-6 py-12 sm:px-12 sm:py-24 lg:px-16 lg:py-24 gap-8 sm:gap-16",
     wrapper: "",
+    header: "",
     title: "text-3xl sm:text-4xl text-pretty tracking-tight font-bold text-highlighted",
     description: "text-base sm:text-lg text-muted",
-    links: "mt-8 flex flex-wrap gap-x-6 gap-y-3"
+    body: "mt-8",
+    footer: "mt-8",
+    links: "flex flex-wrap gap-x-6 gap-y-3"
   },
   variants: {
     orientation: {
@@ -902,10 +961,13 @@ const pageHero = {
     root: "relative isolate",
     container: "flex flex-col lg:grid py-24 sm:py-32 lg:py-40 gap-16 sm:gap-y-24",
     wrapper: "",
+    header: "",
     headline: "mb-4",
     title: "text-5xl sm:text-7xl text-pretty tracking-tight font-bold text-highlighted",
     description: "text-lg sm:text-xl/8 text-muted",
-    links: "mt-10 flex flex-wrap gap-x-6 gap-y-3"
+    body: "mt-10",
+    footer: "mt-10",
+    links: "flex flex-wrap gap-x-6 gap-y-3"
   },
   variants: {
     orientation: {
@@ -1049,13 +1111,16 @@ const pageSection = {
     root: "relative isolate",
     container: "flex flex-col lg:grid py-16 sm:py-24 lg:py-32 gap-8 sm:gap-16",
     wrapper: "",
-    headline: "mb-3",
+    header: "",
     leading: "flex items-center mb-6",
     leadingIcon: "size-10 shrink-0 text-primary",
+    headline: "mb-3",
     title: "text-3xl sm:text-4xl lg:text-5xl text-pretty tracking-tight font-bold text-highlighted",
     description: "text-base sm:text-lg text-muted",
-    links: "mt-8 flex flex-wrap gap-x-6 gap-y-3",
-    features: "mt-8 grid"
+    body: "mt-8",
+    features: "grid",
+    footer: "mt-8",
+    links: "flex flex-wrap gap-x-6 gap-y-3"
   },
   variants: {
     orientation: {
@@ -1092,7 +1157,7 @@ const pageSection = {
     description: {
       true: ""
     },
-    features: {
+    body: {
       true: ""
     }
   },
@@ -1100,19 +1165,19 @@ const pageSection = {
     orientation: "vertical",
     title: true,
     class: {
-      features: "mt-16"
+      body: "mt-16"
     }
   }, {
     orientation: "vertical",
     description: true,
     class: {
-      features: "mt-16"
+      body: "mt-16"
     }
   }, {
     orientation: "vertical",
-    features: true,
+    body: true,
     class: {
-      links: "mt-16"
+      footer: "mt-16"
     }
   }]
 };
@@ -1367,6 +1432,8 @@ const theme$1 = {
   banner: banner,
   blogPost: blogPost,
   blogPosts: blogPosts,
+  changelogVersion: changelogVersion,
+  changelogVersions: changelogVersions,
   chatMessage: chatMessage,
   chatMessages: chatMessages,
   chatPalette: chatPalette,
@@ -1422,7 +1489,7 @@ const accordion = {
 };
 
 const accordionItem = {
-  base: "leading-7 pb-3.5 text-muted"
+  base: "pb-4 text-muted *:first:mt-0 *:last:mb-0 *:my-1.5"
 };
 
 const badge = {
@@ -1478,10 +1545,10 @@ const callout = (options) => ({
 
 const card = (options) => ({
   slots: {
-    base: ["group relative block p-4 sm:p-6 border border-default rounded-md bg-default", options.theme.transitions && "transition-colors"],
+    base: ["group relative block my-5 p-4 sm:p-6 border border-default rounded-md bg-default", options.theme.transitions && "transition-colors"],
     icon: "size-6 mb-2 block",
     title: "text-highlighted font-semibold",
-    description: "text-[15px] text-muted",
+    description: "text-[15px] text-muted *:first:mt-0 *:last:mb-0 *:my-1",
     externalIcon: ["size-4 align-top absolute right-2 top-2 text-dimmed pointer-events-none", options.theme.transitions && "transition-colors"]
   },
   variants: {
@@ -1523,7 +1590,7 @@ const card = (options) => ({
 });
 
 const cardGroup = {
-  base: "grid grid-cols-1 sm:grid-cols-2 gap-5"
+  base: "grid grid-cols-1 sm:grid-cols-2 gap-5 my-5 *:my-0"
 };
 
 const code = (options) => ({
@@ -1680,10 +1747,11 @@ const codeTree = (options) => ({
 
 const collapsible = (options) => ({
   slots: {
-    base: "",
+    root: "my-5",
     trigger: ["group relative rounded-xs inline-flex items-center gap-1.5 text-muted hover:text-default text-sm focus-visible:ring-2 focus-visible:ring-primary focus:outline-none", options.theme.transitions && "transition-colors"],
     triggerIcon: "size-4 shrink-0 group-data-[state=open]:rotate-180 transition-transform duration-200",
-    triggerLabel: "truncate"
+    triggerLabel: "truncate",
+    content: "*:first:mt-2.5 *:last:mb-0 *:my-1.5"
   }
 });
 
@@ -1748,7 +1816,24 @@ const icon = {
 };
 
 const img = {
-  base: ""
+  slots: {
+    base: "rounded-md",
+    overlay: "fixed inset-0 bg-default/75 backdrop-blur-sm will-change-opacity",
+    content: "fixed inset-0 flex items-center justify-center cursor-zoom-out focus:outline-none p-4 sm:p-8"
+  },
+  variants: {
+    zoom: {
+      true: "will-change-transform"
+    },
+    open: {
+      true: ""
+    }
+  },
+  compoundVariants: [{
+    zoom: true,
+    open: false,
+    class: "cursor-zoom-in"
+  }]
 };
 
 const kbd = {
@@ -1789,9 +1874,9 @@ const steps = {
   base: "ms-4 border-s border-default ps-8 [counter-reset:step]",
   variants: {
     level: {
-      2: "[&>h2]:[counter-increment:step] [&>h2]:relative [&>h2]:before:absolute [&>h2]:before:size-8 [&>h2]:before:bg-elevated [&>h2]:before:rounded-full [&>h2]:before:font-semibold [&>h2]:before:text-sm [&>h2]:before:tabular-nums [&>h2]:before:inline-flex [&>h2]:before:items-center [&>h2]:before:justify-center [&>h2]:before:ring-4 [&>h2]:before:ring-bg [&>h2]:before:-ms-[48.5px] [&>h2]:before:-mt-0 [&>h2]:before:content-[counter(step)] [&>h2>a>span]:hidden",
-      3: "[&>h3]:[counter-increment:step] [&>h3]:relative [&>h3]:before:absolute [&>h3]:before:size-7 [&>h3]:before:inset-x-0.5 [&>h3]:before:bg-elevated [&>h3]:before:rounded-full [&>h3]:before:font-semibold [&>h3]:before:text-sm [&>h3]:before:tabular-nums [&>h3]:before:inline-flex [&>h3]:before:items-center [&>h3]:before:justify-center [&>h3]:before:ring-4 [&>h3]:before:ring-bg [&>h3]:before:-ms-[48.5px] [&>h3]:before:content-[counter(step)] [&>h3>a>span]:hidden",
-      4: "[&>h4]:[counter-increment:step] [&>h4]:relative [&>h4]:before:absolute [&>h4]:before:size-7 [&>h4]:before:inset-x-0.5 [&>h4]:before:bg-elevated [&>h4]:before:rounded-full [&>h4]:before:font-semibold [&>h4]:before:text-sm [&>h4]:before:tabular-nums [&>h4]:before:inline-flex [&>h4]:before:items-center [&>h4]:before:justify-center [&>h4]:before:ring-4 [&>h4]:before:ring-bg [&>h4]:before:-ms-[48.5px] [&>h4]:before:content-[counter(step)] [&>h4>a>span]:hidden"
+      2: "[&>h2]:[counter-increment:step] [&>h2]:relative [&>h2]:before:absolute [&>h2]:before:size-8 [&>h2]:before:bg-elevated [&>h2]:before:rounded-full [&>h2]:before:font-semibold [&>h2]:before:text-sm [&>h2]:before:tabular-nums [&>h2]:before:inline-flex [&>h2]:before:items-center [&>h2]:before:justify-center [&>h2]:before:ring-4 [&>h2]:before:ring-bg [&>h2]:before:-ms-[48.5px] [&>h2]:before:-mt-0 [&>h2]:before:content-[counter(step)] [&>h2>a>span.absolute]:hidden",
+      3: "[&>h3]:[counter-increment:step] [&>h3]:relative [&>h3]:before:absolute [&>h3]:before:size-7 [&>h3]:before:inset-x-0.5 [&>h3]:before:bg-elevated [&>h3]:before:rounded-full [&>h3]:before:font-semibold [&>h3]:before:text-sm [&>h3]:before:tabular-nums [&>h3]:before:inline-flex [&>h3]:before:items-center [&>h3]:before:justify-center [&>h3]:before:ring-4 [&>h3]:before:ring-bg [&>h3]:before:-ms-[48.5px] [&>h3]:before:content-[counter(step)] [&>h3>a>span.absolute]:hidden",
+      4: "[&>h4]:[counter-increment:step] [&>h4]:relative [&>h4]:before:absolute [&>h4]:before:size-7 [&>h4]:before:inset-x-0.5 [&>h4]:before:bg-elevated [&>h4]:before:rounded-full [&>h4]:before:font-semibold [&>h4]:before:text-sm [&>h4]:before:tabular-nums [&>h4]:before:inline-flex [&>h4]:before:items-center [&>h4]:before:justify-center [&>h4]:before:ring-4 [&>h4]:before:ring-bg [&>h4]:before:-ms-[48.5px] [&>h4]:before:content-[counter(step)] [&>h4>a>span.absolute]:hidden"
     }
   },
   defaultVariants: {
@@ -1812,12 +1897,12 @@ const table = {
 
 const tabs = {
   slots: {
-    root: "my-5"
+    root: "my-5 gap-4"
   }
 };
 
 const tabsItem = {
-  base: ""
+  base: "*:first:mt-0 *:last:mb-0 *:my-1.5"
 };
 
 const tbody = {
@@ -2083,7 +2168,7 @@ const contentToc = (options) => ({
     root: "sticky top-(--ui-header-height) z-10 bg-default/75 lg:bg-[initial] backdrop-blur -mx-4 px-4 sm:px-6 sm:-mx-6 overflow-y-auto max-h-[calc(100vh-var(--ui-header-height))]",
     container: "pt-4 sm:pt-6 pb-2.5 sm:pb-4.5 lg:py-8 border-b border-dashed border-default lg:border-0 flex flex-col",
     top: "",
-    bottom: "mt-6 hidden lg:flex lg:flex-col gap-6",
+    bottom: "hidden lg:flex lg:flex-col gap-6",
     trigger: "group text-sm font-semibold flex-1 flex items-center gap-1.5 py-1.5 -mt-1.5 focus-visible:outline-primary",
     title: "truncate",
     trailing: "ms-auto inline-flex gap-1.5 items-center",
@@ -2119,6 +2204,11 @@ const contentToc = (options) => ({
       true: {
         list: "ms-2.5 ps-4 border-s border-default",
         item: "-ms-px"
+      }
+    },
+    body: {
+      true: {
+        bottom: "mt-6"
       }
     }
   },
@@ -2164,6 +2254,12 @@ function getTemplates(options, uiOptions, nuxt) {
         getContents: async () => {
           const template = theme2[component];
           const result = typeof template === "function" ? template(uiOptions) : template;
+          if (result?.defaultVariants?.color && uiOptions.theme?.defaultVariants?.color) {
+            result.defaultVariants.color = uiOptions.theme.defaultVariants.color;
+          }
+          if (result?.defaultVariants?.size && uiOptions.theme?.defaultVariants?.size) {
+            result.defaultVariants.size = uiOptions.theme.defaultVariants.size;
+          }
           const variants = Object.entries(result.variants || {}).filter(([_, values]) => {
             const keys = Object.keys(values);
             return keys.some((key) => key !== "true" && key !== "false");
@@ -2177,7 +2273,7 @@ function getTemplates(options, uiOptions, nuxt) {
             });
           }
           function generateVariantDeclarations(variants2) {
-            return variants2.map((variant) => {
+            return variants2.filter((variant) => json.includes(`as typeof ${variant}`)).map((variant) => {
               const keys = Object.keys(result.variants[variant]);
               return `const ${variant} = ${JSON.stringify(keys, null, 2)} as const`;
             });
@@ -2286,7 +2382,6 @@ const icons = {
 };
 
 async function validateLicense(opts) {
-  return true
   if (!opts.key) {
     throw _createError(`Missing \`${opts.theme.env}\` license key.
 Purchase Nuxt UI Pro at \`${opts.theme.link}\` to build your app in production.`);
@@ -2386,7 +2481,7 @@ async function _getPkgName(dir) {
 }
 
 const name = "@nuxt/ui-pro";
-const version = "3.1.1";
+const version = "3.3.0";
 const theme = {
 	env: "NUXT_UI_PRO_LICENSE",
 	link: "https://ui.nuxt.com/pro/pricing"

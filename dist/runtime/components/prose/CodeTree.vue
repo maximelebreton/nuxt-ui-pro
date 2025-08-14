@@ -6,9 +6,11 @@ import theme from "#build/ui-pro/prose/code-tree";
 import { computed, ref, watch, onBeforeUpdate } from "vue";
 import { TreeRoot, TreeItem } from "reka-ui";
 import { createReusableTemplate } from "@vueuse/core";
+import UIcon from "@nuxt/ui/components/Icon.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../../utils/tv";
-import CodeIcon from "./CodeIcon.vue";
+import UCodeIcon from "./CodeIcon.vue";
+defineOptions({ inheritAttrs: false });
 const props = defineProps({
   defaultValue: { type: String, required: false },
   expandAll: { type: Boolean, required: false },
@@ -107,7 +109,7 @@ onBeforeUpdate(() => rerenderCount.value++);
             :name="isExpanded ? appConfig.ui.icons.folderOpen : appConfig.ui.icons.folder"
             :class="ui.linkLeadingIcon({ class: props.ui?.linkLeadingIcon })"
           />
-          <CodeIcon
+          <UCodeIcon
             v-else
             :filename="item.label"
             :class="ui.linkLeadingIcon({ class: props.ui?.linkLeadingIcon })"
@@ -129,7 +131,7 @@ onBeforeUpdate(() => rerenderCount.value++);
     </li>
   </DefineTreeTemplate>
 
-  <div :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <div v-bind="$attrs" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <TreeRoot
       v-model="model"
       :class="ui.list({ class: props.ui?.list })"

@@ -15,9 +15,10 @@ export interface DashboardPanelSlots {
     'resize-handle'(props: {
         onMouseDown: (e: MouseEvent) => void;
         onTouchStart: (e: TouchEvent) => void;
+        onDoubleClick: (e: MouseEvent) => void;
     }): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardPanelProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardPanelProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardPanelProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardPanelProps> & Readonly<{}>, {
     minSize: number;
     resizable: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, DashboardPanelSlots>;

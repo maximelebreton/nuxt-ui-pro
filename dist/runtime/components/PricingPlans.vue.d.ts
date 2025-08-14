@@ -31,10 +31,10 @@ export interface PricingPlansProps {
 export interface PricingPlansSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PricingPlansProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PricingPlansProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PricingPlansProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PricingPlansProps> & Readonly<{}>, {
     orientation: PricingPlans["variants"]["orientation"];
-    compact: boolean;
     scale: boolean;
+    compact: boolean;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PricingPlansSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {

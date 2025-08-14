@@ -19,7 +19,7 @@ export interface ProseCodeTreeProps {
 export interface ProseCodeTreeSlots {
     default(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCodeTreeProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCodeTreeProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCodeTreeSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ProseCodeTreeProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ProseCodeTreeProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ProseCodeTreeSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

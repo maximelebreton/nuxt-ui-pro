@@ -30,15 +30,18 @@ export interface PageHeroProps {
     ui?: PageHero['slots'];
 }
 export interface PageHeroSlots {
-    default(props?: {}): any;
     top(props?: {}): any;
-    bottom(props?: {}): any;
+    header(props?: {}): any;
     headline(props?: {}): any;
     title(props?: {}): any;
     description(props?: {}): any;
+    body(props?: {}): any;
+    footer(props?: {}): any;
     links(props?: {}): any;
+    default(props?: {}): any;
+    bottom(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageHeroProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageHeroProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<PageHeroProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<PageHeroProps> & Readonly<{}>, {
     orientation: PageHero["variants"]["orientation"];
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, PageHeroSlots>;
 export default _default;

@@ -3,5 +3,5 @@ export interface ColorModeAvatarProps extends /** @vue-ignore */ Omit<AvatarProp
     light: string;
     dark: string;
 }
-declare const _default: import("vue").DefineComponent<ColorModeAvatarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ColorModeAvatarProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
+declare const _default: import("vue").DefineComponent<ColorModeAvatarProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ColorModeAvatarProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>;
 export default _default;

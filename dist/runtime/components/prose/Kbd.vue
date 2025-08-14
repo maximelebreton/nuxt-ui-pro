@@ -4,6 +4,7 @@ import theme from "#build/ui-pro/prose/kbd";
 
 <script setup>
 import { computed } from "vue";
+import UKbd from "@nuxt/ui/components/Kbd.vue";
 import { useAppConfig } from "#imports";
 import { tv } from "../../utils/tv";
 const props = defineProps({

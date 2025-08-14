@@ -50,6 +50,7 @@ export interface DashboardSidebarSlots {
     'resize-handle'(props: {
         onMouseDown: (e: MouseEvent) => void;
         onTouchStart: (e: TouchEvent) => void;
+        onDoubleClick: (e: MouseEvent) => void;
     }): any;
 }
 declare const _default: <T extends DashboardSidebarMode>(__VLS_props: NonNullable<Awaited<typeof __VLS_setup>>["props"], __VLS_ctx?: __VLS_PrettifyLocal<Pick<NonNullable<Awaited<typeof __VLS_setup>>, "attrs" | "emit" | "slots">>, __VLS_expose?: NonNullable<Awaited<typeof __VLS_setup>>["expose"], __VLS_setup?: Promise<{
@@ -69,5 +70,5 @@ declare const _default: <T extends DashboardSidebarMode>(__VLS_props: NonNullabl
 };
 export default _default;
 type __VLS_PrettifyLocal<T> = {
-    [K in keyof T]: T[K];
+    [K in keyof T as K]: T[K];
 } & {};

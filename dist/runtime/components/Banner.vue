@@ -5,6 +5,9 @@ import theme from "#build/ui-pro/banner";
 <script setup>
 import { computed, watch } from "vue";
 import { Primitive } from "reka-ui";
+import ULink from "@nuxt/ui/components/Link.vue";
+import UContainer from "@nuxt/ui/components/Container.vue";
+import UButton from "@nuxt/ui/components/Button.vue";
 import { useHead, useAppConfig } from "#imports";
 import { useLocalePro } from "../composables/useLocalePro";
 import { tv } from "../utils/tv";
@@ -56,7 +59,7 @@ function onClose() {
 </script>
 
 <template>
-  <Primitive :as="as" class="banner" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" class="banner" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <ULink
       v-if="to"
       :aria-label="title"

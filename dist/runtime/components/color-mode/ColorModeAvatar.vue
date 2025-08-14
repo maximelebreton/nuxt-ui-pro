@@ -3,6 +3,7 @@
 </script>
 
 <script setup>
+import UAvatar from "@nuxt/ui/components/Avatar.vue";
 defineOptions({ inheritAttrs: false });
 defineProps({
   light: { type: String, required: true },

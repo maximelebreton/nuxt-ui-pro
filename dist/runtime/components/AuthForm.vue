@@ -6,6 +6,15 @@ import theme from "#build/ui-pro/auth-form";
 import { reactive, ref, computed, useTemplateRef } from "vue";
 import { Primitive } from "reka-ui";
 import { omit } from "@nuxt/ui/utils";
+import UButton from "@nuxt/ui/components/Button.vue";
+import UIcon from "@nuxt/ui/components/Icon.vue";
+import USeparator from "@nuxt/ui/components/Separator.vue";
+import UForm from "@nuxt/ui/components/Form.vue";
+import UFormField from "@nuxt/ui/components/FormField.vue";
+import UCheckbox from "@nuxt/ui/components/Checkbox.vue";
+import USelectMenu from "@nuxt/ui/components/SelectMenu.vue";
+import UInput from "@nuxt/ui/components/Input.vue";
+import UPinInput from "@nuxt/ui/components/PinInput.vue";
 import { useAppConfig } from "#imports";
 import { useLocalePro } from "../composables/useLocalePro";
 import { tv } from "../utils/tv";
@@ -24,7 +33,9 @@ const props = defineProps({
   validateOnInputDelay: { type: null, required: false },
   disabled: { type: null, required: false },
   loading: { type: null, required: false },
+  loadingAuto: { type: null, required: false },
   class: { type: null, required: false },
+  onSubmit: { type: null, required: false },
   ui: { type: null, required: false }
 });
 const state = reactive((props.fields || []).reduce((acc, field) => {
@@ -33,7 +44,7 @@ const state = reactive((props.fields || []).reduce((acc, field) => {
   }
   return acc;
 }, {}));
-const emits = defineEmits(["submit"]);
+defineEmits(["submit"]);
 const slots = defineSlots();
 const { t } = useLocalePro();
 const appConfig = useAppConfig();
@@ -41,12 +52,13 @@ const formRef = useTemplateRef("formRef");
 const passwordVisibility = ref(false);
 const ui = computed(() => tv({ extend: tv(theme), ...appConfig.uiPro?.authForm || {} })());
 defineExpose({
-  formRef
+  formRef,
+  state
 });
 </script>
 
 <template>
-  <Primitive :as="as" :class="ui.root({ class: [props.class, props.ui?.root] })">
+  <Primitive :as="as" :class="ui.root({ class: [props.ui?.root, props.class] })">
     <div v-if="icon || !!slots.icon || (title || !!slots.title) || (description || !!slots.description) || !!slots.header" :class="ui.header({ class: props.ui?.header })">
       <slot name="header">
         <div v-if="icon || !!slots.leading" :class="ui.leading({ class: props.ui?.leading })">
@@ -70,15 +82,17 @@ defineExpose({
     </div>
 
     <div :class="ui.body({ class: props.ui?.body })">
-      <div v-if="providers?.length" :class="ui.providers({ class: props.ui?.providers })">
-        <UButton
-          v-for="(provider, index) in providers"
-          :key="index"
-          block
-          color="neutral"
-          variant="subtle"
-          v-bind="provider"
-        />
+      <div v-if="providers?.length || !!slots.providers" :class="ui.providers({ class: props.ui?.providers })">
+        <slot name="providers">
+          <UButton
+            v-for="(provider, index) in providers"
+            :key="index"
+            block
+            color="neutral"
+            variant="subtle"
+            v-bind="provider"
+          />
+        </slot>
       </div>
 
       <USeparator
@@ -96,7 +110,8 @@ defineExpose({
         :validate-on="validateOn"
         :class="ui.form({ class: props.ui?.form })"
         :disabled="disabled"
-        @submit="emits('submit', $event)"
+        :loading-auto="loadingAuto"
+        @submit="onSubmit"
       >
         <UFormField
           v-for="field in fields"
@@ -110,11 +125,22 @@ defineExpose({
           :required="field.required"
         >
           <slot :name="`${field.name}-field`" v-bind="{ state, field }">
-            <UCheckbox v-if="field.type === 'checkbox'" v-model="state[field.name]" v-bind="omit(field, ['description', 'help', 'hint', 'size'])" />
-            <USelectMenu v-else-if="field.type === 'select'" v-model="state[field.name]" v-bind="omit(field, ['description', 'help', 'hint', 'size'])" />
+            <UCheckbox
+              v-if="field.type === 'checkbox'"
+              v-model="state[field.name]"
+              :class="ui.checkbox({ class: props.ui?.checkbox })"
+              v-bind="omit(field, ['description', 'help', 'hint', 'size'])"
+            />
+            <USelectMenu
+              v-else-if="field.type === 'select'"
+              v-model="state[field.name]"
+              :class="ui.select({ class: props.ui?.select })"
+              v-bind="omit(field, ['description', 'help', 'hint', 'size'])"
+            />
             <UInput
               v-else-if="field.type === 'password'"
               v-model="state[field.name]"
+              :class="ui.password({ class: props.ui?.password })"
               :type="passwordVisibility ? 'text' : 'password'"
               v-bind="omit(field, ['label', 'description', 'help', 'hint', 'size', 'type', 'required', 'defaultValue'])"
               :ui="{ root: 'w-full' }"
@@ -132,11 +158,19 @@ defineExpose({
                 />
               </template>
             </UInput>
+            <UPinInput
+              v-else-if="field.type === 'otp'"
+              :id="field.name"
+              v-model="state[field.name]"
+              :class="ui.otp({ class: props.ui?.otp })"
+              otp
+              v-bind="field.otp"
+            />
             <UInput
               v-else
               v-model="state[field.name]"
+              :class="ui.input({ class: props.ui?.input })"
               v-bind="omit(field, ['label', 'description', 'help', 'hint', 'size', 'required', 'defaultValue'])"
-              :ui="{ root: 'w-full' }"
             />
           </slot>
 
@@ -159,13 +193,16 @@ defineExpose({
 
         <slot v-if="!!slots.validation" name="validation" />
 
-        <UButton
-          type="submit"
-          :label="t('authForm.submit')"
-          block
-          :loading="loading"
-          v-bind="submit"
-        />
+        <slot name="submit" :loading="loading">
+          <UButton
+            type="submit"
+            :label="t('authForm.submit')"
+            block
+            :loading="loading"
+            :loading-auto="loadingAuto"
+            v-bind="submit"
+          />
+        </slot>
       </UForm>
     </div>
 

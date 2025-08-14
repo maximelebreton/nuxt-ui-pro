@@ -60,6 +60,16 @@ export default defineLocale({
       caption: "\xC1rlista \xF6sszehasonl\xEDt\xE1sa"
     },
     prose: {
+      codeCollapse: {
+        name: "k\xF3d",
+        openText: "Kinyit",
+        closeText: "\xD6sszecsuk"
+      },
+      collapsible: {
+        name: "tulajdons\xE1gok",
+        openText: "Mutat",
+        closeText: "Elrejt"
+      },
       pre: {
         copy: "K\xF3d m\xE1sol\xE1sa a v\xE1g\xF3lapra"
       }

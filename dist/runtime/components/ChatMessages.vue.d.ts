@@ -69,7 +69,7 @@ export interface ChatMessagesSlots {
         message: Message;
     }): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatMessagesProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ChatMessagesProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatMessagesProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ChatMessagesProps> & Readonly<{}>, {
     autoScroll: boolean | Partial<ButtonProps>;
     shouldAutoScroll: boolean;
     shouldScrollToBottom: boolean;

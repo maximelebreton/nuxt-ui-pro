@@ -16,7 +16,7 @@ export interface DashboardToolbarSlots {
     left(props?: {}): any;
     right(props?: {}): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardToolbarProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardToolbarProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, DashboardToolbarSlots>;
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<DashboardToolbarProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<DashboardToolbarProps> & Readonly<{}>, {}, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, DashboardToolbarSlots>;
 export default _default;
 type __VLS_WithSlots<T, S> = T & {
     new (): {

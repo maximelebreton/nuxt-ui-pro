@@ -60,8 +60,18 @@ export default defineLocale({
       caption: "\uAC00\uACA9 \uD50C\uB79C \uBE44\uAD50"
     },
     prose: {
+      codeCollapse: {
+        name: "\uCF54\uB4DC",
+        openText: "\uD3BC\uCE58\uAE30",
+        closeText: "\uC811\uAE30"
+      },
+      collapsible: {
+        name: "\uC18D\uC131",
+        openText: "\uBCF4\uAE30",
+        closeText: "\uC228\uAE30\uAE30"
+      },
       pre: {
-        copy: "\uD074\uB9BD\uBCF4\uB4DC\uC5D0 \uCF54\uB4DC \uBCF5\uC0AC"
+        copy: "\uCF54\uB4DC\uB97C \uD074\uB9BD\uBCF4\uB4DC\uC5D0 \uBCF5\uC0AC"
       }
     }
   }

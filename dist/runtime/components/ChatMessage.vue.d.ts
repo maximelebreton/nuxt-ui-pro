@@ -45,14 +45,12 @@ export interface ChatMessageSlots {
     leading(props: {
         avatar: ChatMessageProps['avatar'];
     }): any;
-    content(props: {
-        content: ChatMessageProps['content'];
-    }): any;
+    content(props: Pick<ChatMessageProps, 'content' | 'reasoning' | 'experimental_attachments' | 'annotations' | 'toolInvocations' | 'parts'>): any;
     actions(props: {
         actions: ChatMessageProps['actions'];
     }): any;
 }
-declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatMessageProps, {}, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ChatMessageProps> & Readonly<{}>, {
+declare const _default: __VLS_WithSlots<import("vue").DefineComponent<ChatMessageProps, void, {}, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<ChatMessageProps> & Readonly<{}>, {
     as: any;
 }, {}, {}, {}, string, import("vue").ComponentProvideOptions, false, {}, any>, ChatMessageSlots>;
 export default _default;
